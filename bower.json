@@ -1,0 +1,20 @@
+{
+  "name": "mantra",
+  "version": "0.0.0",
+  "dependencies": {
+    "bootstrap-sass-official": "~3.2.0",
+    "modernizr": "~2.7.1",
+    "lateralus": "~0.8.0",
+    "requirejs": "~2.1.20",
+    "backbone": "1.2.1",
+    "lodash": "3.10.1",
+    "jquery": "2.1.4",
+    "mustache": "2.1.3"
+  },
+  "resolutions": {
+    "backbone": "1.2.1",
+    "lodash": "3.10.1",
+    "jquery": "2.1.4",
+    "mustache": "2.1.3"
+  }
+}
