@@ -1,12 +1,14 @@
 define([
 
   'lateralus'
+  ,'rekapi'
 
   ,'mantra.component.container'
 
 ], function (
 
   Lateralus
+  ,Rekapi
 
   ,ContainerComponent
 
@@ -20,6 +22,7 @@ define([
    */
   var Mantra = Lateralus.beget(function () {
     Lateralus.apply(this, arguments);
+    this.rekapi = new Rekapi(document.body);
     this.containerComponent = this.addComponent(ContainerComponent);
   });
 
