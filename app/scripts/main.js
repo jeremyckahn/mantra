@@ -31,6 +31,9 @@ require.config({
   }, {
     name: 'mantra.component.container'
     ,location: 'scripts/components/container'
+  }, {
+    name: 'mantra.component.preview'
+    ,location: 'scripts/components/preview'
 
     // rekapi-timeline
   }, {

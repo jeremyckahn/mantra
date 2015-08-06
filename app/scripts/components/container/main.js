@@ -6,6 +6,9 @@ define([
   ,'./view'
   ,'text!./template.mustache'
 
+  ,'mantra.component.preview'
+
+  // Silent import
   ,'rekapi-timeline'
 
 ], function (
@@ -16,6 +19,7 @@ define([
   ,View
   ,template
 
+  ,PreviewComponent
 
 ) {
   'use strict';
@@ -29,8 +33,28 @@ define([
     ,template: template
 
     ,initialize: function () {
+      this.addComponent(PreviewComponent, {
+        el: this.view.$preview[0]
+      });
+
+      this.setupInitialKeyframes();
+
       this.timeline =
         this.lateralus.rekapi.createTimeline(this.view.$timeline[0]);
+    }
+
+    ,setupInitialKeyframes: function () {
+      this.collectOne('currentActor')
+        .keyframe(0, {
+          translateX: '0px'
+          ,translateY: '0px'
+          ,rotate: '0deg'
+        })
+        .keyframe(1000, {
+          translateX: '300px'
+          ,translateY: '0px'
+          ,rotate: '0deg'
+        });
     }
   });
 
