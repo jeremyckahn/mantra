@@ -8,9 +8,6 @@ define([
 
   ,'mantra.component.preview'
 
-  // Silent import
-  ,'rekapi-timeline'
-
 ], function (
 
   Lateralus
@@ -38,9 +35,6 @@ define([
       });
 
       this.setupInitialKeyframes();
-
-      this.timeline =
-        this.lateralus.rekapi.createTimeline(this.view.$timeline[0]);
     }
 
     ,setupInitialKeyframes: function () {

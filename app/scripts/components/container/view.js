@@ -4,6 +4,9 @@ define([
 
   ,'text!./template.mustache'
 
+  // Silent import
+  ,'rekapi-timeline'
+
 ], function (
 
   Lateralus
@@ -24,6 +27,11 @@ define([
      */
     ,initialize: function () {
       baseProto.initialize.apply(this, arguments);
+    }
+
+    ,deferredInitialize: function () {
+      this.timeline =
+        this.lateralus.rekapi.createTimeline(this.$timeline[0]);
     }
   });
 
