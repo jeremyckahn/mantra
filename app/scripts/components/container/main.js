@@ -7,6 +7,7 @@ define([
   ,'text!./template.mustache'
 
   ,'mantra.component.preview'
+  ,'mantra.component.control-panel'
 
 ], function (
 
@@ -17,6 +18,7 @@ define([
   ,template
 
   ,PreviewComponent
+  ,ControlPanel
 
 ) {
   'use strict';
@@ -32,6 +34,10 @@ define([
     ,initialize: function () {
       this.addComponent(PreviewComponent, {
         el: this.view.$preview[0]
+      });
+
+      this.addComponent(ControlPanel, {
+        el: this.view.$controlPanel[0]
       });
 
       this.setupInitialKeyframes();

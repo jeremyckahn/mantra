@@ -34,6 +34,9 @@ require.config({
   }, {
     name: 'mantra.component.preview'
     ,location: 'scripts/components/preview'
+  }, {
+    name: 'mantra.component.control-panel'
+    ,location: 'scripts/components/control-panel'
 
     // rekapi-timeline
   }, {
