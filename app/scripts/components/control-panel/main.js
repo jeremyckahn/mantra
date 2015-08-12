@@ -6,6 +6,8 @@ define([
   ,'./view'
   ,'text!./template.mustache'
 
+  ,'aenima.component.export-panel'
+
 ], function (
 
   Lateralus
@@ -13,6 +15,8 @@ define([
   ,Model
   ,View
   ,template
+
+  ,ExportPanel
 
 ) {
   'use strict';
@@ -24,6 +28,12 @@ define([
     ,Model: Model
     ,View: View
     ,template: template
+
+    ,initialize: function () {
+      this.addComponent(ExportPanel, {
+        el: this.view.$exportPanel[0]
+      });
+    }
   });
 
   return ControlPanelComponent;

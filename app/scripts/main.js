@@ -38,7 +38,7 @@ require.config({
     name: 'mantra.component.control-panel'
     ,location: 'scripts/components/control-panel'
 
-    // rekapi-timeline
+  // rekapi-timeline
   }, {
     name: 'rekapi-timeline'
     ,location: 'bower_components/rekapi-timeline/app/scripts'
@@ -76,6 +76,17 @@ require.config({
   }, {
     name: 'rekapi-timeline.component.keyframe-property-detail'
     ,location: 'bower_components/rekapi-timeline/app/scripts/components/keyframe-property-detail'
+
+  // AEnima
+  }, {
+    name: 'aenima.component.export-panel'
+    ,location: 'bower_components/aenima/components/export-panel'
+  }, {
+    name: 'aenima.component.css-export-panel'
+    ,location: 'bower_components/aenima/components/css-export-panel'
+  }, {
+    name: 'aenima.component.rekapi-export-panel'
+    ,location: 'bower_components/aenima/components/rekapi-export-panel'
   }]
 });
 
