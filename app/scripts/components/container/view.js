@@ -22,6 +22,8 @@ define([
   var ContainerComponentView = Base.extend({
     template: template
 
+    ,className: 'aenima'
+
     /**
      * @param {Object} [options] See http://backbonejs.org/#View-constructor
      */
