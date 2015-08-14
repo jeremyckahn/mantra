@@ -4,16 +4,20 @@ define([
 
   ,'text!./template.mustache'
 
+  ,'aenima.component.control-panel'
+
 ], function (
 
   Lateralus
 
   ,template
 
+  ,AEnimaControlPanel
+
 ) {
   'use strict';
 
-  var Base = Lateralus.Component.View;
+  var Base = AEnimaControlPanel.View;
   var baseProto = Base.prototype;
 
   var ControlPanelComponentView = Base.extend({
@@ -24,6 +28,10 @@ define([
      */
     ,initialize: function () {
       baseProto.initialize.apply(this, arguments);
+
+      // FIXME: For some reason this makes tabs work.  This is isn't necessary
+      // in Stylie though.  Strange!
+      this.tabsComponent.delegateEvents();
     }
   });
 

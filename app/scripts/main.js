@@ -25,6 +25,9 @@ require.config({
     ,location: 'bower_components/lateralus/scripts'
     ,main: 'lateralus'
   }, {
+    name: 'lateralus.component.tabs'
+    ,location: 'bower_components/lateralus-components/tabs'
+  }, {
     name: 'mantra'
     ,location: 'scripts'
     ,main: 'mantra'
@@ -78,6 +81,9 @@ require.config({
     ,location: 'bower_components/rekapi-timeline/app/scripts/components/keyframe-property-detail'
 
   // AEnima
+  }, {
+    name: 'aenima.component.control-panel'
+    ,location: 'bower_components/aenima/components/control-panel'
   }, {
     name: 'aenima.component.export-panel'
     ,location: 'bower_components/aenima/components/export-panel'

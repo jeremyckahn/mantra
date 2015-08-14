@@ -6,6 +6,7 @@ define([
   ,'./view'
   ,'text!./template.mustache'
 
+  ,'aenima.component.control-panel'
   ,'aenima.component.export-panel'
 
 ], function (
@@ -16,12 +17,13 @@ define([
   ,View
   ,template
 
+  ,AEnimaControlPanel
   ,ExportPanel
 
 ) {
   'use strict';
 
-  var Base = Lateralus.Component;
+  var Base = AEnimaControlPanel;
 
   var ControlPanelComponent = Base.extend({
     name: 'control-panel'
