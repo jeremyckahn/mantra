@@ -28,10 +28,6 @@ define([
      */
     ,initialize: function () {
       baseProto.initialize.apply(this, arguments);
-
-      // FIXME: For some reason this makes tabs work.  This is isn't necessary
-      // in Stylie though.  Strange!
-      this.tabsComponent.delegateEvents();
     }
   });
 
