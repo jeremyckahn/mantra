@@ -1,9 +1,10 @@
 @import ../../../../styles/variables
+@import compass/css3/flexbox
 
 @mixin flex-stretch
-  display: flex
-  flex-direction: column
-  flex: 2
+  +display-flex
+  +flex-direction(column)
+  +flex(2)
 
 .control-panel-view
   // 2px to account for rekapi-timeline's border
@@ -33,5 +34,5 @@
         +flex-stretch
 
         textarea
-          flex: 2
+          +flex(2)
           resize: none
