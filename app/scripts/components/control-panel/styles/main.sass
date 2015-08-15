@@ -1,11 +1,37 @@
 @import ../../../../styles/variables
 
+@mixin flex-stretch
+  display: flex
+  flex-direction: column
+  flex: 2
+
 .control-panel-view
-  bottom: $TIMELINE_HEIGHT
+  // 2px to account for rekapi-timeline's border
+  bottom: $TIMELINE_HEIGHT + 2px
   position: fixed
   right: 0
   top: 0
   width: $CONTROL_PANEL_WIDTH
+  +flex-stretch
 
   .tabs-container
+    min-height: 28px
     padding-top: .3em
+
+  .tabs-content-container
+    overflow: auto
+    +flex-stretch
+
+    .tab-content,
+    .export-control-containers
+      +flex-stretch
+
+    .export-control-containers
+
+      >li:not(.hide),
+      .textarea-wrapper
+        +flex-stretch
+
+        textarea
+          flex: 2
+          resize: none
