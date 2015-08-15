@@ -1,6 +1,7 @@
 {
   "name": "mantra",
   "version": "0.0.0",
+  "homepage": "https://github.com/jeremyckahn/mantra",
   "dependencies": {
     "bootstrap-sass-official": "~3.2.0",
     "modernizr": "~2.7.1",
