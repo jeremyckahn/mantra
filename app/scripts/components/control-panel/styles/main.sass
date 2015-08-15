@@ -8,6 +8,7 @@
 .control-panel-view
   // 2px to account for rekapi-timeline's border
   bottom: $TIMELINE_HEIGHT + 2px
+  overflow: auto
   position: fixed
   right: 0
   top: 0
@@ -19,7 +20,6 @@
     padding-top: .3em
 
   .tabs-content-container
-    overflow: auto
     +flex-stretch
 
     .tab-content,
