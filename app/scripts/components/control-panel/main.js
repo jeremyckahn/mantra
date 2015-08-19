@@ -58,6 +58,7 @@ define([
         modelAttributes: {
           cssExportClass: 'mantra'
           ,analyticsUrl: 'FIXME'
+          ,enableOrientationControls: false
         }
       });
     }
