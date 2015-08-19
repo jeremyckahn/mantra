@@ -17,13 +17,13 @@ define([
   ,View
   ,template
 
-  ,AEnimaControlPanel
-  ,ExportPanel
+  ,AEnimaControlPanelComponent
+  ,ExportPanelComponent
 
 ) {
   'use strict';
 
-  var Base = AEnimaControlPanel;
+  var Base = AEnimaControlPanelComponent;
 
   var ControlPanelComponent = Base.extend({
     name: 'control-panel'
@@ -32,8 +32,14 @@ define([
     ,template: template
 
     ,initialize: function () {
-      this.addComponent(ExportPanel, {
+      this.addComponent(ExportPanelComponent, {
         el: this.view.$exportPanel[0]
+      }, {
+        modelAttributes: {
+          cssExportClass: 'stylie'
+          ,analyticsUrl:
+            'https://ga-beacon.appspot.com/UA-42910121-1/stylie?pixel'
+        }
       });
     }
   });
