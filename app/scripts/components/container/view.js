@@ -34,6 +34,8 @@ define([
     ,deferredInitialize: function () {
       this.timeline =
         this.lateralus.rekapi.createTimeline(this.$timeline[0]);
+
+      this.amplify(this.timeline, 'rekapi:timelineModified');
     }
   });
 
