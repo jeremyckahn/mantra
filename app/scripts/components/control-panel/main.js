@@ -1,6 +1,7 @@
 define([
 
-  'lateralus'
+  'underscore'
+  ,'lateralus'
 
   ,'./model'
   ,'./view'
@@ -11,7 +12,8 @@ define([
 
 ], function (
 
-  Lateralus
+  _
+  ,Lateralus
 
   ,Model
   ,View
@@ -31,14 +33,31 @@ define([
     ,View: View
     ,template: template
 
+    ,provide: {
+      /**
+       * @return {{
+       *   name: string,
+       *   fps: number,
+       *   vendors: Array.<string>,
+       *   //isCentered: boolean,
+       *   iterations: boolean|undefined
+       * }}
+       */
+      cssConfigObject: function () {
+        //var motionPanelJson = this.motionPanelComponent.toJSON();
+        var exportPanelJson = this.exportPanelComponent.toJSON();
+
+        return _.extend(/*motionPanelJson, */exportPanelJson);
+      }
+    }
+
     ,initialize: function () {
-      this.addComponent(ExportPanelComponent, {
+      this.exportPanelComponent = this.addComponent(ExportPanelComponent, {
         el: this.view.$exportPanel[0]
       }, {
         modelAttributes: {
-          cssExportClass: 'stylie'
-          ,analyticsUrl:
-            'https://ga-beacon.appspot.com/UA-42910121-1/stylie?pixel'
+          cssExportClass: 'mantra'
+          ,analyticsUrl: 'FIXME'
         }
       });
     }

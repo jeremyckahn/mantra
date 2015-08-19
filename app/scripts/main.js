@@ -19,6 +19,8 @@ require.config({
     ,mustache: 'bower_components/mustache/mustache'
     ,shifty: 'bower_components/shifty/dist/shifty'
     ,rekapi: 'bower_components/rekapi/dist/rekapi'
+    ,'aenima.constant': 'bower_components/aenima/constant'
+    ,'aenima.utils': 'bower_components/aenima/utils'
   }
   ,packages: [{
     name: 'lateralus'
@@ -31,6 +33,9 @@ require.config({
     name: 'mantra'
     ,location: 'scripts'
     ,main: 'mantra'
+  }, {
+    name: 'mantra.component.rekapi'
+    ,location: 'scripts/components/rekapi'
   }, {
     name: 'mantra.component.container'
     ,location: 'scripts/components/container'
@@ -81,6 +86,12 @@ require.config({
     ,location: 'bower_components/rekapi-timeline/app/scripts/components/keyframe-property-detail'
 
   // AEnima
+  }, {
+    name: 'aenima.component.shifty'
+    ,location: 'bower_components/aenima/components/shifty'
+  }, {
+    name: 'aenima.component.rekapi'
+    ,location: 'bower_components/aenima/components/rekapi'
   }, {
     name: 'aenima.component.control-panel'
     ,location: 'bower_components/aenima/components/control-panel'

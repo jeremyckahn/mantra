@@ -25,19 +25,8 @@ define([
     ,View: View
     ,template: template
 
-    ,provide: {
-      /**
-       * @return {Rekapi.Actor}
-       */
-      currentActor: function () {
-        return this.actor;
-      }
-    }
-
     ,initialize: function () {
-      this.actor = this.lateralus.rekapi.addActor({
-        context: this.view.$actor[0]
-      });
+      this.collectOne('currentActorModel').setContext(this.view.$actor[0]);
     }
   });
 

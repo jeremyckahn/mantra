@@ -5,6 +5,7 @@ define([
 
   ,'./model'
 
+  ,'mantra.component.rekapi'
   ,'mantra.component.container'
 
 ], function (
@@ -14,6 +15,7 @@ define([
 
   ,MantraModel
 
+  ,RekapiComponent
   ,ContainerComponent
 
 ) {
@@ -26,7 +28,8 @@ define([
    */
   var Mantra = Lateralus.beget(function () {
     Lateralus.apply(this, arguments);
-    this.rekapi = new Rekapi(document.body);
+    this.rekapiComponent = this.addComponent(RekapiComponent);
+    this.rekapi = this.rekapiComponent.rekapi;
     this.containerComponent = this.addComponent(ContainerComponent);
   }, {
     Model: MantraModel

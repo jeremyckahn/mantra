@@ -44,7 +44,7 @@ define([
     }
 
     ,setupInitialKeyframes: function () {
-      this.collectOne('currentActor')
+      this.collectOne('currentActorModel')
         .keyframe(0, {
           translateX: '0px'
           ,translateY: '0px'
