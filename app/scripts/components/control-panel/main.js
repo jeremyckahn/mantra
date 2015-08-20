@@ -57,7 +57,7 @@ define([
       }, {
         modelAttributes: {
           cssExportClass: 'mantra'
-          ,analyticsUrl: 'FIXME'
+          ,analyticsUrl: ''
           ,enableOrientationControls: false
         }
       });
