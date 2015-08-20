@@ -46,13 +46,13 @@ define([
     ,setupInitialKeyframes: function () {
       this.collectOne('currentActorModel')
         .keyframe(0, {
-          translateX: '0px'
-          ,translateY: '0px'
+          translateX: '100px'
+          ,translateY: '100px'
           ,rotate: '0deg'
         })
         .keyframe(1000, {
-          translateX: '300px'
-          ,translateY: '0px'
+          translateX: '400px'
+          ,translateY: '100px'
           ,rotate: '0deg'
         });
     }
