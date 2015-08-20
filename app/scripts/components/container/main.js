@@ -9,6 +9,8 @@ define([
   ,'mantra.component.preview'
   ,'mantra.component.control-panel'
 
+  ,'aenima.utils'
+
 ], function (
 
   Lateralus
@@ -19,6 +21,8 @@ define([
 
   ,PreviewComponent
   ,ControlPanel
+
+  ,utils
 
 ) {
   'use strict';
@@ -41,6 +45,12 @@ define([
       });
 
       this.setupInitialKeyframes();
+
+      this.lateralus.rekapiComponent.update(0);
+
+      if (!utils.getQueryParam('pause')) {
+        this.emit('requestPlay');
+      }
     }
 
     ,setupInitialKeyframes: function () {
