@@ -49,7 +49,7 @@ module.exports = function (grunt) {
           '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
           '{.tmp,<%= yeoman.app %>}/scripts/**/*.{js,mustache}',
           '{.tmp,<%= yeoman.app %>}/bower_components/aenima/**/*.{js,mustache}',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
+          '<%= yeoman.app %>/img/{,*/}*.{png,jpg,jpeg,gif,webp}',
           '<%= yeoman.app %>/scripts/templates/*.{ejs,mustache,hbs}'
         ]
       },
@@ -154,9 +154,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= yeoman.app %>/images',
+          cwd: '<%= yeoman.app %>/img',
           src: '{,*/}*.{png,jpg,jpeg}',
-          dest: '<%= yeoman.dist %>/images'
+          dest: '<%= yeoman.dist %>/img'
         }]
       }
     },
