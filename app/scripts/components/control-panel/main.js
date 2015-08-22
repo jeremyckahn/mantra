@@ -69,6 +69,7 @@ define([
       }, {
         modelAttributes: {
           enablePathToggle: false
+          ,enableCenterToggle: false
         }
       });
     }
