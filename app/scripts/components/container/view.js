@@ -35,7 +35,18 @@ define([
       this.timeline =
         this.lateralus.rekapi.createTimeline(this.$timeline[0]);
 
-      this.amplify(this.timeline, 'rekapi:timelineModified');
+      // Bridge some events across Lateralus apps
+      [
+        'rekapi:timelineModified'
+      ].forEach(function (event) {
+        this.amplify(this.timeline, event);
+      }.bind(this));
+
+      [
+        'tweenableCurveCreated'
+      ].forEach(function (event) {
+        this.timeline.amplify(this.lateralus, event);
+      }.bind(this));
     }
   });
 
