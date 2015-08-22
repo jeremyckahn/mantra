@@ -19,6 +19,7 @@ require.config({
     ,mustache: 'bower_components/mustache/mustache'
     ,shifty: 'bower_components/shifty/dist/shifty'
     ,rekapi: 'bower_components/rekapi/dist/rekapi'
+    ,bezierizer: 'bower_components/bezierizer/dist/bezierizer'
     ,'aenima.constant': 'bower_components/aenima/constant'
     ,'aenima.utils': 'bower_components/aenima/utils'
   }
@@ -104,6 +105,15 @@ require.config({
   }, {
     name: 'aenima.component.rekapi-export-panel'
     ,location: 'bower_components/aenima/components/rekapi-export-panel'
+  }, {
+    name: 'aenima.component.bezierizer'
+    ,location: 'bower_components/aenima/components/bezierizer'
+  }, {
+    name: 'aenima.component.curve-selector'
+    ,location: 'bower_components/aenima/components/curve-selector'
+  }, {
+    name: 'aenima.component.motion-panel'
+    ,location: 'bower_components/aenima/components/motion-panel'
   }]
 });
 

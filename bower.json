@@ -13,7 +13,8 @@
     "mustache": "2.1.3",
     "rekapi": "~1.5.0",
     "rekapi-timeline": "~0.1.1",
-    "aenima": "~0.0.2"
+    "aenima": "~0.0.2",
+    "bezierizer": "~0.1.0"
   },
   "resolutions": {
     "backbone": "1.2.1",
@@ -21,6 +22,7 @@
     "jquery": "2.1.4",
     "mustache": "2.1.3",
     "underscore": ">=1.7.0",
-    "lateralus": "~0.8.0"
+    "lateralus": "~0.8.0",
+    "shifty": "1.5.0"
   }
 }
