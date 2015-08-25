@@ -3,17 +3,22 @@ define([
   'underscore'
   ,'lateralus'
 
+  ,'aenima.mixin/local-storage-model'
+
 ], function (
 
   _
   ,Lateralus
 
+  ,localStorageMixin
+
 ) {
   'use strict';
 
   var MantraModel = Lateralus.Model.extend({
+    localStorageId: 'mantraData'
 
-    defaults: {
+    ,defaults: {
       ui: {
         exportOrientation: 'first-keyframe'
         ,showPath: true
@@ -21,6 +26,10 @@ define([
         ,cssSize: 30
         ,selectedVendors: ['w3']
       }
+    }
+
+    ,initialize: function () {
+      this.mixin(localStorageMixin);
     }
 
     /**
@@ -37,6 +46,9 @@ define([
      */
     ,setUi: function (name, value) {
       this.attributes.ui[name] = value;
+
+      // Persist app state to localStorage.
+      this.trigger('change');
     }
   });
 

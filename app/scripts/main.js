@@ -88,6 +88,9 @@ require.config({
 
   // AEnima
   }, {
+    name: 'aenima.mixin'
+    ,location: 'bower_components/aenima/mixins'
+  }, {
     name: 'aenima.component.shifty'
     ,location: 'bower_components/aenima/components/shifty'
   }, {
