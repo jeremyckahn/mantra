@@ -3,19 +3,22 @@ define([
   'underscore'
   ,'lateralus'
 
-  ,'aenima.mixin/local-storage-model'
+  ,'aenima.model/persisted-model'
 
 ], function (
 
   _
   ,Lateralus
 
-  ,localStorageMixin
+  ,PersistedModel
 
 ) {
   'use strict';
 
-  var MantraModel = Lateralus.Model.extend({
+  var Base = PersistedModel;
+  var baseProto = Base.prototype;
+
+  var MantraModel = Base.extend({
     localStorageId: 'mantraData'
 
     ,defaults: {
@@ -29,26 +32,7 @@ define([
     }
 
     ,initialize: function () {
-      this.mixin(localStorageMixin);
-    }
-
-    /**
-     * @param {string} name
-     * @return {*}
-     */
-    ,getUi: function (name) {
-      return this.get('ui')[name];
-    }
-
-    /**
-     * @param {string} name
-     * @param {*} value
-     */
-    ,setUi: function (name, value) {
-      this.attributes.ui[name] = value;
-
-      // Persist app state to localStorage.
-      this.trigger('change');
+      baseProto.initialize.apply(this, arguments);
     }
   });
 
