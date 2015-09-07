@@ -25,8 +25,11 @@ define([
     ,View: View
     ,template: template
 
-    ,initialize: function () {
-      this.collectOne('currentActorModel').setContext(this.view.$actor[0]);
+    ,lateralusEvents: {
+      'rekapi:addActor': function (rekapi, actor) {
+        // NOTE: This will need to change to support multiple actors
+        actor.context = this.view.$actor[0];
+      }
     }
   });
 

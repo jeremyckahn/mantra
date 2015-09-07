@@ -1,6 +1,7 @@
 define([
 
-  'lateralus'
+  'underscore'
+  ,'lateralus'
 
   ,'text!./template.mustache'
 
@@ -9,7 +10,8 @@ define([
 
 ], function (
 
-  Lateralus
+  _
+  ,Lateralus
 
   ,template
 
@@ -23,6 +25,34 @@ define([
     template: template
 
     ,className: 'aenima'
+
+    ,provide: {
+      /**
+       * @return {RekapiTimeline}
+       */
+      rekapiTimeline: function () {
+        return this.timeline;
+      }
+
+      /**
+       * @return {RekapiTimeline.ActorModel}
+       */
+      ,currentActorModel: function () {
+        return this.timeline.collectOne('currentActorModel');
+      }
+    }
+
+    ,lateralusEvents: {
+      requestClearTimeline: function () {
+        var rekapi = this.lateralus.rekapi;
+
+        // Each actor must be removed individually so the rekapi:removeActor
+        // event is fired
+        _.each(rekapi.getAllActors(), function (actor) {
+          rekapi.removeActor(actor);
+        }, this);
+      }
+    }
 
     /**
      * @param {Object} [options] See http://backbonejs.org/#View-constructor
@@ -47,6 +77,9 @@ define([
       ].forEach(function (event) {
         this.timeline.amplify(this.lateralus, event);
       }.bind(this));
+
+      this.lateralus.rekapi.addActor();
+      this.emit('rekapiTimelineInitialized');
     }
   });
 

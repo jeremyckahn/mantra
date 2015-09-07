@@ -1,12 +1,16 @@
 define([
 
-  'lateralus'
+  'underscore'
+  ,'lateralus'
+  ,'rekapi'
 
   ,'aenima.component.rekapi'
 
 ], function (
 
-  Lateralus
+  _
+  ,Lateralus
+  ,Rekapi
 
   ,AEnimaRekapiComponent
 
@@ -17,6 +21,16 @@ define([
 
   var RekapiComponent = Base.extend({
     name: 'rekapi'
+
+    /**
+     * @return {Object}
+     */
+    ,toJSON: function () {
+      var exportData = this.exportTimeline();
+      exportData.bezierCurves = this.bezierCurves;
+
+      return exportData;
+    }
   });
 
   return RekapiComponent;

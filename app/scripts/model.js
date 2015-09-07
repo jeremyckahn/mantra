@@ -22,7 +22,8 @@ define([
     localStorageId: 'mantraData'
 
     ,defaults: {
-      ui: {
+      savedTimelines: {}
+      ,ui: {
         exportOrientation: 'first-keyframe'
         ,showPath: true
         ,centerToPath: true
