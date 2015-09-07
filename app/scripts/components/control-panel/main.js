@@ -10,6 +10,7 @@ define([
   ,'aenima.component.control-panel'
   ,'aenima.component.export-panel'
   ,'aenima.component.motion-panel'
+  ,'aenima.component.management-panel'
 
 ], function (
 
@@ -23,6 +24,7 @@ define([
   ,AEnimaControlPanelComponent
   ,ExportPanelComponent
   ,MotionPanelComponent
+  ,ManagementPanelComponent
 
 ) {
   'use strict';
@@ -71,6 +73,10 @@ define([
           enablePathToggle: false
           ,enableCenterToggle: false
         }
+      });
+
+      this.managementPanelComponent = this.addComponent(ManagementPanelComponent, {
+        el: this.view.$managementPanel[0]
       });
     }
   });

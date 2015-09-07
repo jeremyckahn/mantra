@@ -74,6 +74,11 @@ define([
       // Necessary for keeping the UI in sync after startup.
       this.saveCurrentTimelineAs(constant.TRANSIENT_TIMELINE_NAME);
 
+    this.emit(
+      'savedAnimationListUpdated'
+      ,this.getSavedTimelineDisplayList()
+    );
+
       this.hasInitialized = true;
     }
 
@@ -81,6 +86,22 @@ define([
       if (this.hasInitialized) {
         this.saveCurrentTimelineAs(constant.TRANSIENT_TIMELINE_NAME);
       }
+    }
+
+    /**
+     * @param {string} timelineName
+     */
+    ,userRequestSaveCurrentAnimation: function (timelineName) {
+      this.saveCurrentTimelineAs(timelineName);
+    }
+
+    /**
+     * @param {string} timelineName
+     */
+    ,userRequestLoadAnimation: function (timelineName) {
+      var savedTimelines = this.model.get('savedTimelines');
+      var timelineData = savedTimelines[timelineName];
+      this.loadTimeline(timelineData);
     }
   };
 
@@ -113,7 +134,7 @@ define([
 
     if (timelineName !== constant.TRANSIENT_TIMELINE_NAME) {
       this.emit(
-        'savedTimelineListUpdated'
+        'savedAnimationListUpdated'
         ,this.getSavedTimelineDisplayList()
         ,timelineName
       );

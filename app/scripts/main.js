@@ -120,6 +120,9 @@ require.config({
   }, {
     name: 'aenima.component.motion-panel'
     ,location: 'bower_components/aenima/components/motion-panel'
+  }, {
+    name: 'aenima.component.management-panel'
+    ,location: 'bower_components/aenima/components/management-panel'
   }]
 });
 
