@@ -22,6 +22,7 @@ require.config({
     ,bezierizer: 'bower_components/bezierizer/dist/bezierizer'
     ,'aenima.constant': 'bower_components/aenima/constant'
     ,'aenima.utils': 'bower_components/aenima/utils'
+    ,keydrown: 'bower_components/keydrown/dist/keydrown'
   }
   ,packages: [{
     name: 'lateralus'
@@ -46,6 +47,9 @@ require.config({
   }, {
     name: 'mantra.component.control-panel'
     ,location: 'scripts/components/control-panel'
+  }, {
+    name: 'mantra.component.keybindings'
+    ,location: 'scripts/components/keybindings'
 
   // rekapi-timeline
   }, {
@@ -123,6 +127,9 @@ require.config({
   }, {
     name: 'aenima.component.management-panel'
     ,location: 'bower_components/aenima/components/management-panel'
+  }, {
+    name: 'aenima.component.keybindings'
+    ,location: 'bower_components/aenima/components/keybindings'
   }]
 });
 

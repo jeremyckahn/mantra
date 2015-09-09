@@ -6,6 +6,7 @@ define([
   ,'./view'
   ,'text!./template.mustache'
 
+  ,'mantra.component.keybindings'
   ,'mantra.component.preview'
   ,'mantra.component.control-panel'
 
@@ -17,6 +18,7 @@ define([
   ,View
   ,template
 
+  ,KeybindingsComponent
   ,PreviewComponent
   ,ControlPanel
 
@@ -32,6 +34,8 @@ define([
     ,template: template
 
     ,initialize: function () {
+      this.keybindingsComponent = this.addComponent(KeybindingsComponent);
+
       this.addComponent(PreviewComponent, {
         el: this.view.$preview[0]
       });
