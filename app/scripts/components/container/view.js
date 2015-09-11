@@ -5,6 +5,8 @@ define([
 
   ,'text!./template.mustache'
 
+  ,'../../constant'
+
   // Silent import
   ,'rekapi-timeline'
 
@@ -14,6 +16,8 @@ define([
   ,Lateralus
 
   ,template
+
+  ,constant
 
 ) {
   'use strict';
@@ -63,7 +67,9 @@ define([
 
     ,deferredInitialize: function () {
       this.timeline =
-        this.lateralus.rekapi.createTimeline(this.$timeline[0]);
+        this.lateralus.rekapi.createTimeline(this.$timeline[0], {
+          supportedProperties: constant.SUPPORTED_PROPERTIES
+        });
 
       // Bridge some events across Lateralus apps
       [
