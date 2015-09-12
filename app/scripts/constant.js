@@ -8,6 +8,7 @@ define(function () {
       ,'rotateX'
       ,'rotateY'
       ,'rotateZ'
+      ,'scale'
       ,'scaleX'
       ,'scaleY'
       ,'skewX'
