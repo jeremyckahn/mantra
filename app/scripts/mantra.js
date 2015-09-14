@@ -40,6 +40,7 @@ define([
    */
   var Mantra = Lateralus.beget(function () {
     Lateralus.apply(this, arguments);
+    this.initHacks();
     this.hasInitialized = false;
     this.shiftyComponent = this.addComponent(ShiftyComponent);
     this.rekapiComponent = this.addComponent(RekapiComponent);
@@ -165,6 +166,20 @@ define([
         ,translateY: '100px'
         ,rotate: '0deg'
       });
+  };
+
+  fn.initHacks = function () {
+    var hasSafari = navigator.userAgent.match(/safari/i);
+    var hasChrome = navigator.userAgent.match(/chrome/i);
+    var isFirefox = navigator.userAgent.match(/firefox/i);
+
+    if (hasSafari && !hasChrome) {
+      this.$el.addClass('safari');
+    } else if (hasChrome) {
+      this.$el.addClass('chrome');
+    } else if (isFirefox) {
+      this.$el.addClass('firefox');
+    }
   };
 
   return Mantra;
