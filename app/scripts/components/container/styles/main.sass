@@ -1,5 +1,11 @@
+@import 'compass/css3/transform'
+
 .container-view
   background: url(../img/bg_grid.png)
+
+  &.loading
+    opacity: 0
+    +transform(scale(0))
 
   .timeline
     position: fixed
