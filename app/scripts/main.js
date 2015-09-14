@@ -48,6 +48,9 @@ require.config({
     name: 'mantra.component.control-panel'
     ,location: 'scripts/components/control-panel'
   }, {
+    name: 'mantra.component.info-panel'
+    ,location: 'scripts/components/info-panel'
+  }, {
     name: 'mantra.component.keybindings'
     ,location: 'scripts/components/keybindings'
 

@@ -11,6 +11,7 @@ define([
   ,'aenima.component.export-panel'
   ,'aenima.component.motion-panel'
   ,'aenima.component.management-panel'
+  ,'mantra.component.info-panel'
 
 ], function (
 
@@ -25,6 +26,7 @@ define([
   ,ExportPanelComponent
   ,MotionPanelComponent
   ,ManagementPanelComponent
+  ,InfoPanelComponent
 
 ) {
   'use strict';
@@ -75,8 +77,14 @@ define([
         }
       });
 
-      this.managementPanelComponent = this.addComponent(ManagementPanelComponent, {
+      this.managementPanelComponent = this.addComponent(
+          ManagementPanelComponent, {
         el: this.view.$managementPanel[0]
+      });
+
+      this.infoPanelComponent = this.addComponent(
+          InfoPanelComponent, {
+        el: this.view.$infoPanel[0]
       });
     }
   });
