@@ -23,6 +23,12 @@ define([
   var ControlPanelComponentView = Base.extend({
     template: template
 
+    ,lateralusEvents: {
+      setupInitialState: function () {
+        this.tabsComponent.selectTab(this.$infoTab);
+      }
+    }
+
     /**
      * @param {Object} [options] See http://backbonejs.org/#View-constructor
      */

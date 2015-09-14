@@ -62,7 +62,7 @@ define([
       if (transientTimeline) {
         this.loadTimeline(transientTimeline);
       } else {
-        this.setupInitialKeyframes();
+        this.emit('setupInitialState');
       }
 
       this.rekapiComponent.update(0);
@@ -102,6 +102,10 @@ define([
       var savedTimelines = this.model.get('savedTimelines');
       var timelineData = savedTimelines[timelineName];
       this.loadTimeline(timelineData);
+    }
+
+    ,setupInitialState: function () {
+      this.setupInitialKeyframes();
     }
   };
 
