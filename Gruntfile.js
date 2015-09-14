@@ -1,3 +1,4 @@
+// jshint maxlen: 120
 'use strict';
 var LIVERELOAD_PORT = 35738;
 var SERVER_PORT = 9009;
@@ -236,6 +237,22 @@ module.exports = function (grunt) {
           ]
         }
       }
+    },
+    appcache: {
+      options: {
+        basePath: '<%= yeoman.dist %>',
+        preferOnline: true
+      },
+      all: {
+        dest: '<%= yeoman.dist %>/manifest.appcache',
+        cache: {
+          patterns: [
+            '<%= yeoman.dist %>/**/**',
+            'manifest.appcache'
+          ]
+        },
+        network: '*'
+      }
     }
   });
 
@@ -274,7 +291,8 @@ module.exports = function (grunt) {
     'uglify',
     'copy',
     'rev',
-    'usemin'
+    'usemin',
+    'appcache'
   ]);
 
   grunt.registerTask('deploy', [
