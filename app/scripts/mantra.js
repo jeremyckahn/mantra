@@ -75,10 +75,10 @@ define([
       // Necessary for keeping the UI in sync after startup.
       this.saveCurrentTimelineAs(constant.TRANSIENT_TIMELINE_NAME);
 
-    this.emit(
-      'savedAnimationListUpdated'
-      ,this.getSavedTimelineDisplayList()
-    );
+      this.emit(
+        'savedAnimationListUpdated'
+        ,this.getSavedTimelineDisplayList()
+      );
 
       this.hasInitialized = true;
     }
