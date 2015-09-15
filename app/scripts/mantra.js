@@ -61,8 +61,9 @@ define([
       var transientTimeline = savedTimelines[constant.TRANSIENT_TIMELINE_NAME];
 
       if (window.localStorage._stylieExport) {
-        this.loadTimeline(JSON.parse(window.localStorage._stylieExport));
+        var stylieExport = window.localStorage._stylieExport;
         delete window.localStorage._stylieExport;
+        this.loadTimeline(JSON.parse(stylieExport));
       } else if (transientTimeline) {
         this.loadTimeline(transientTimeline);
       } else {
