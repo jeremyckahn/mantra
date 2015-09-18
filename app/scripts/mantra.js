@@ -60,10 +60,10 @@ define([
       var savedTimelines = this.model.get('savedTimelines');
       var transientTimeline = savedTimelines[constant.TRANSIENT_TIMELINE_NAME];
 
-      if (window.localStorage._stylieExport) {
-        var stylieExport = window.localStorage._stylieExport;
-        delete window.localStorage._stylieExport;
-        this.loadTimeline(JSON.parse(stylieExport));
+      if (window.localStorage._export) {
+        var _export = window.localStorage._export;
+        delete window.localStorage._export;
+        this.loadTimeline(JSON.parse(_export));
       } else if (transientTimeline) {
         this.loadTimeline(transientTimeline);
       } else {
