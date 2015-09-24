@@ -3,7 +3,7 @@
   "version": "0.2.2",
   "homepage": "https://github.com/jeremyckahn/mantra",
   "dependencies": {
-    "aenima": "~0.0.9",
+    "aenima": "~0.0.10",
     "backbone": "1.2.1",
     "bezierizer": "~0.1.0",
     "bootstrap-sass-official": "~3.2.0",
@@ -13,7 +13,7 @@
     "lodash": "3.10.1",
     "modernizr": "~2.7.1",
     "mustache": "2.1.3",
-    "rekapi": "~1.5.3",
+    "rekapi": "~1.5.4",
     "rekapi-timeline": "~0.1.7",
     "requirejs": "~2.1.20",
     "xdLocalStorage": "~2.0.1"

@@ -120,7 +120,7 @@ define([
   fn.loadTimeline = function (timelineData) {
     this.emit('requestClearTimeline');
 
-    this.emit('loadBezierCurves', timelineData.bezierCurves);
+    this.emit('loadBezierCurves', timelineData.curves);
     this.rekapiComponent.importTimeline(timelineData);
 
     // rekapi:timelineModified events are not triggered during or at the end of

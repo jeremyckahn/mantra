@@ -27,7 +27,6 @@ define([
      */
     ,toJSON: function () {
       var exportData = this.exportTimeline();
-      exportData.bezierCurves = this.bezierCurves;
 
       return exportData;
     }
