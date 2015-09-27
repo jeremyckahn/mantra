@@ -51,10 +51,8 @@ define([
         }
       }
 
-      /**
-       * @param {boolean} showOnionSkin
-       */
-      ,userRequestUpdateOnionSkinSetting: function (showOnionSkin) {
+      ,userRequestUpdateOnionSkinSetting: function () {
+        var showOnionSkin = this.lateralus.model.getUi('showOnionSkin');
         if (showOnionSkin) {
           this.updateOnionSkinResolutionForTimelineDuration(
             this.lateralus.rekapi.getAnimationLength());

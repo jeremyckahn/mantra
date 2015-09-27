@@ -33,7 +33,9 @@ define([
     /**
      * @override
      */
-    ,keyUpEventMap: {}
+    ,keyUpEventMap: {
+      O: 'userRequestUpdateOnionSkinSettingViaKeybinding'
+    }
   });
 
   return KeybindingsComponent;
