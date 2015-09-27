@@ -1,6 +1,6 @@
 {
   "name": "mantra",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "dependencies": {},
   "devDependencies": {
     "connect-livereload": "~0.3.2",
