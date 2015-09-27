@@ -27,6 +27,7 @@ define([
         exportOrientation: 'first-keyframe'
         ,showPath: true
         ,centerToPath: true
+        ,showOnionSkin: false
         ,cssSize: 30
         ,selectedVendors: ['w3']
       }

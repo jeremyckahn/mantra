@@ -75,6 +75,7 @@ define([
       // Bridge some events across Lateralus apps
       [
         'rekapi:timelineModified'
+        ,'change:timelineDuration'
       ].forEach(function (event) {
         this.amplify(this.timeline, event);
       }.bind(this));

@@ -3,6 +3,7 @@ define(function () {
 
   return {
     TRANSIENT_TIMELINE_NAME: '__transientTimeline'
+    ,ONION_SKIN_SEGMENTS_PER_SECOND: 10
     ,SUPPORTED_PROPERTIES: [
       {  name: 'opacity', defaultValue: 0 }
       ,{ name: 'rotateX', defaultValue: '0deg' }
