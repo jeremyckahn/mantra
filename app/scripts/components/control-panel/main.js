@@ -65,7 +65,6 @@ define([
           cssExportClass: 'mantra'
           ,analyticsUrl:
             'https://ga-beacon.appspot.com/UA-67487259-1/mantra?pixel'
-          ,enableOrientationControls: false
         }
       });
 

@@ -46,9 +46,6 @@ define([
     this.rekapiComponent = this.addComponent(RekapiComponent);
     this.rekapi = this.rekapiComponent.rekapi;
     this.containerComponent = this.addComponent(ContainerComponent);
-
-    // NOTE: This may not be necessary once Shifty is more fully integrated
-    this.emit('requestNewCurve');
   }, {
     Model: MantraModel
   });
@@ -110,7 +107,7 @@ define([
     }
 
     ,setupInitialState: function () {
-      this.setupInitialKeyframes();
+      this.setupInitialState();
     }
   };
 
@@ -158,7 +155,9 @@ define([
     return Object.keys(_.omit(rawList, constant.TRANSIENT_TIMELINE_NAME));
   };
 
-  fn.setupInitialKeyframes = function () {
+  fn.setupInitialState = function () {
+    this.emit('requestNewCurve');
+
     this.collectOne('currentActorModel')
       .keyframe(0, {
         translateX: '100px'
