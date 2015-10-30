@@ -41,13 +41,13 @@ define([
 
         if (lateralus.hasInitialized &&
             lateralus.model.getUi('showOnionSkin')) {
-          this.updateOnlineSkinSegmentPositions();
+          this.updateOnionSkinSegmentPositions();
         }
       }
 
       ,rekapiTimelineInitialized: function () {
         if (this.lateralus.model.getUi('showOnionSkin')) {
-          this.updateOnlineSkinSegmentPositions();
+          this.updateOnionSkinSegmentPositions();
         }
       }
 
@@ -56,7 +56,7 @@ define([
         if (showOnionSkin) {
           this.updateOnionSkinResolutionForTimelineDuration(
             this.lateralus.rekapi.getAnimationLength());
-          this.updateOnlineSkinSegmentPositions();
+          this.updateOnionSkinSegmentPositions();
         }
 
         this.$onionSkin
@@ -94,7 +94,7 @@ define([
       this.$onionSkin.append(actorClones);
     }
 
-    ,updateOnlineSkinSegmentPositions: function () {
+    ,updateOnionSkinSegmentPositions: function () {
       var rekapi = this.lateralus.rekapi;
       onionSkinRekapi.removeAllActors();
       onionSkinRekapi.importTimeline(rekapi.exportTimeline());

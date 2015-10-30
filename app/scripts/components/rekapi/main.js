@@ -1,6 +1,7 @@
 define([
 
-  'underscore'
+  'jquery'
+  ,'underscore'
   ,'lateralus'
   ,'rekapi'
 
@@ -8,7 +9,8 @@ define([
 
 ], function (
 
-  _
+  $
+  ,_
   ,Lateralus
   ,Rekapi
 
@@ -19,6 +21,7 @@ define([
 
   var Base = AEnimaRekapiComponent;
   var baseProto = Base.prototype;
+  var $doc = $(document.documentElement);
 
   var RekapiComponent = Base.extend({
     name: 'rekapi'
@@ -41,6 +44,22 @@ define([
           baseProto.provide.cssAnimationString.bind(this, cssOpts));
       }
     }, baseProto.provide)
+
+    ,lateralusEvents: {
+      requestClearTimeline: function () {
+        this.removeAllActors();
+      }
+
+      /**
+       * @param {KeyboardEvent} evt
+       */
+      ,userRequestUndo: function (evt) {
+        // Prevent focusing of the previously-modified input element
+        evt.preventDefault();
+
+        this.revertToPreviouslyRecordedUndoState();
+      }
+    }
 
     /**
      * @param {Function} exportProcessor
@@ -116,6 +135,50 @@ define([
       var exportData = this.exportTimeline();
 
       return exportData;
+    }
+
+    /**
+     * @override
+     */
+    ,recordUndoState: function () {
+      baseProto.recordUndoState.apply(this, arguments);
+
+      var activeKeyframeProperties = this.collect('activeKeyframeProperties');
+
+      var activeProperties = [];
+      if (activeKeyframeProperties.length) {
+        activeProperties = _.map(activeKeyframeProperties,
+            function (activeKeyframeProperty) {
+          return activeKeyframeProperty.model.pick('name', 'millisecond');
+        });
+      }
+
+      _.extend(
+        _.last(this.undoStateStack)
+        ,{ activeProperties: activeProperties }
+      );
+    }
+
+    /**
+     * @override
+     */
+    ,revertToPreviouslyRecordedUndoState: function () {
+      if (!this.undoStateStack.length) {
+        return;
+      }
+
+      // Cause all $.fn.dragon drags to end
+      $doc.trigger('mouseup');
+
+      var lastUndoState = _.last(this.undoStateStack);
+      baseProto.revertToPreviouslyRecordedUndoState.apply(this, arguments);
+
+      lastUndoState.activeProperties.forEach(function (activeProperty) {
+        this.emit(
+          'activateKeyframePropertyByNameAndMillisecond'
+          ,activeProperty
+        );
+      }, this);
     }
   });
 

@@ -37,25 +37,6 @@ define([
       rekapiTimeline: function () {
         return this.timeline;
       }
-
-      /**
-       * @return {RekapiTimeline.ActorModel}
-       */
-      ,currentActorModel: function () {
-        return this.timeline.collectOne('currentActorModel');
-      }
-    }
-
-    ,lateralusEvents: {
-      requestClearTimeline: function () {
-        var rekapi = this.lateralus.rekapi;
-
-        // Each actor must be removed individually so the rekapi:removeActor
-        // event is fired
-        _.each(rekapi.getAllActors(), function (actor) {
-          rekapi.removeActor(actor);
-        }, this);
-      }
     }
 
     /**
@@ -70,11 +51,16 @@ define([
       this.timeline =
         this.lateralus.rekapi.createTimeline(this.$timeline[0], {
           supportedProperties: constant.SUPPORTED_PROPERTIES
+          ,preventValueInputAutoSelect: true
         });
 
       // Bridge some events across Lateralus apps
       [
         'rekapi:timelineModified'
+        ,'keyframePropertyDragStart'
+        ,'beforeUserUpdatesKeyframeValueInput'
+        ,'beforeUserUpdatesKeyframeMillisecondInput'
+        ,'beforeUserUpdatesKeyframeCurveSelector'
         ,'change:timelineDuration'
       ].forEach(function (event) {
         this.amplify(this.timeline, event);
@@ -82,8 +68,17 @@ define([
 
       [
         'tweenableCurveCreated'
+        ,'activateKeyframePropertyByNameAndMillisecond'
+        ,'requestDeselectAllKeyframes'
       ].forEach(function (event) {
         this.timeline.amplify(this.lateralus, event);
+      }.bind(this));
+
+      [
+        'currentActorModel'
+        ,'activeKeyframeProperties'
+      ].forEach(function (provider) {
+        this.timeline.shareWith(this.lateralus, provider);
       }.bind(this));
 
       this.lateralus.rekapi.addActor();

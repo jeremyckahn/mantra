@@ -109,16 +109,44 @@ define([
     ,setupInitialState: function () {
       this.setupInitialState();
     }
+
+    ,keyframePropertyDragStart: function () {
+      this.emit('requestRecordUndoState');
+    }
+
+    ,beforeUserUpdatesKeyframeMillisecondInput: function () {
+      this.emit('requestRecordUndoState');
+    }
+
+    ,beforeUserUpdatesKeyframeCurveSelector: function () {
+      this.emit('requestRecordUndoState');
+    }
+
+    ,beforeUserUpdatesKeyframeValueInput: function () {
+      this.emit('requestRecordUndoState');
+    }
+
+    ,'rekapi:beforeAddKeyframeProperty': function () {
+      this.emit('requestRecordUndoState');
+    }
+
+    ,'rekapi:beforeRemoveKeyframeProperty': function () {
+      this.emit('requestRecordUndoState');
+    }
   };
 
   /**
    * @param {Object} timelineData
    */
   fn.loadTimeline = function (timelineData) {
+    this.model.set('isLoadingTimeline', true);
     this.emit('requestClearTimeline');
+    this.emit('requestClearUndoStack');
 
     this.emit('loadBezierCurves', timelineData.curves);
+    this.emit('requestDeselectAllKeyframes');
     this.rekapiComponent.importTimeline(timelineData);
+    this.model.set('isLoadingTimeline', false);
 
     // rekapi:timelineModified events are not triggered during or at the end of
     // importTimeline, so trigger the event explicitly here to update

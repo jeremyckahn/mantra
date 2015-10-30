@@ -33,6 +33,13 @@ define([
     /**
      * @override
      */
+    ,metaKeyPressEventMap: {
+      Z: 'userRequestUndo'
+    }
+
+    /**
+     * @override
+     */
     ,keyUpEventMap: {
       O: 'userRequestUpdateOnionSkinSettingViaKeybinding'
     }

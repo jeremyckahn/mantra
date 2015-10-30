@@ -23,6 +23,7 @@ define([
 
     ,defaults: {
       savedTimelines: {}
+      ,isLoadingTimeline: false
       ,ui: {
         exportOrientation: 'first-keyframe'
         ,showPath: true
