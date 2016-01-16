@@ -21,7 +21,6 @@ define([
 
   var Base = AEnimaRekapiComponent;
   var baseProto = Base.prototype;
-  var $doc = $(document.documentElement);
 
   var RekapiComponent = Base.extend({
     name: 'rekapi'
@@ -140,8 +139,8 @@ define([
     /**
      * @override
      */
-    ,recordUndoState: function () {
-      baseProto.recordUndoState.apply(this, arguments);
+    ,exportTimeline: function () {
+      var timeline = baseProto.exportTimeline.apply(this, arguments);
 
       var activeKeyframeProperties = this.collect('activeKeyframeProperties');
 
@@ -153,10 +152,9 @@ define([
         });
       }
 
-      _.extend(
-        _.last(this.undoStateStack)
-        ,{ activeProperties: activeProperties }
-      );
+      _.extend(timeline, { activeProperties: activeProperties });
+
+      return timeline;
     }
 
     /**
@@ -167,10 +165,7 @@ define([
         return;
       }
 
-      // Cause all $.fn.dragon drags to end
-      $doc.trigger('mouseup');
-
-      var lastUndoState = _.last(this.undoStateStack);
+      var lastUndoState = JSON.parse(_.last(this.undoStateStack));
       baseProto.revertToPreviouslyRecordedUndoState.apply(this, arguments);
 
       lastUndoState.activeProperties.forEach(function (activeProperty) {
@@ -179,6 +174,13 @@ define([
           ,activeProperty
         );
       }, this);
+    }
+
+    /**
+     * @override
+     */
+    ,removeCurrentTimeline: function () {
+      this.removeAllActors();
     }
   });
 
