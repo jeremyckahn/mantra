@@ -23,6 +23,7 @@ define([
 
     ,defaults: {
       savedTimelines: {}
+      ,doPreventUndoRecording: false
       ,isLoadingTimeline: false
       ,ui: {
         exportOrientation: 'first-keyframe'

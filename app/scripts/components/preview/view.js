@@ -62,6 +62,10 @@ define([
         this.$onionSkin
           [showOnionSkin ? 'removeClass' : 'addClass']('transparent');
       }
+
+      ,requestResetRenderedActorState: function () {
+        this.$actor.removeAttr('style');
+      }
     }
 
     /**

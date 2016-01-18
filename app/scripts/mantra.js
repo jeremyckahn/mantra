@@ -106,6 +106,23 @@ define([
       this.loadTimeline(timelineData);
     }
 
+    ,resetTimeline: function () {
+      this.model.set({
+        isLoadingTimeline: true
+        ,doPreventUndoRecording: true
+      });
+
+      this.emit('requestClearTimeline');
+      this.rekapiComponent.addActor();
+      this.setupInitialState();
+      this.rekapiComponent.update();
+
+      this.model.set({
+        isLoadingTimeline: false
+        ,doPreventUndoRecording: false
+      });
+    }
+
     ,setupInitialState: function () {
       this.setupInitialState();
     }
@@ -153,6 +170,11 @@ define([
     // the RekapiTimeline UI
     this.collectOne('rekapiTimeline')
       .trigger('rekapi:timelineModified', this.rekapi);
+
+    // Also force an update of the timeline scrubber guide since the events
+    // that normally trigger it were silenced previously
+    this.emit('requestResizeScrubberGuide');
+    this.rekapiComponent.update();
   };
 
   /**

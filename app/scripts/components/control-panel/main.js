@@ -10,7 +10,7 @@ define([
   ,'aenima.component.control-panel'
   ,'aenima.component.export-panel'
   ,'aenima.component.motion-panel'
-  ,'aenima.component.management-panel'
+  ,'mantra.component.management-panel'
   ,'mantra.component.info-panel'
 
 ], function (

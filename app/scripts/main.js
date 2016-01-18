@@ -53,6 +53,9 @@ require.config({
   }, {
     name: 'mantra.component.keybindings'
     ,location: 'scripts/components/keybindings'
+  }, {
+    name: 'mantra.component.management-panel'
+    ,location: 'scripts/components/management-panel'
 
   // rekapi-timeline
   }, {

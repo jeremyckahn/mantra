@@ -12,8 +12,8 @@ define(function () {
       ,{ name: 'scale', defaultValue: 0 }
       ,{ name: 'scaleX', defaultValue: 0 }
       ,{ name: 'scaleY', defaultValue: 0 }
-      ,{ name: 'skewX', defaultValue: 0 }
-      ,{ name: 'skewY', defaultValue: 0 }
+      ,{ name: 'skewX', defaultValue: '0deg' }
+      ,{ name: 'skewY', defaultValue: '0deg' }
       ,{ name: 'translateX', defaultValue: '0px' }
       ,{ name: 'translateY', defaultValue: '0px' }
     ]

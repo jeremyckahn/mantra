@@ -139,6 +139,19 @@ define([
     /**
      * @override
      */
+    ,update: function () {
+      // If no arguments were provided, this is a re-render and all retained
+      // styles should be removed
+      if (arguments.length === 0) {
+        this.emit('requestResetRenderedActorState');
+      }
+
+      baseProto.update.apply(this, arguments);
+    }
+
+    /**
+     * @override
+     */
     ,exportTimeline: function () {
       var timeline = baseProto.exportTimeline.apply(this, arguments);
 
@@ -174,6 +187,8 @@ define([
           ,activeProperty
         );
       }, this);
+
+      this.emit('requestResizeScrubberGuide');
     }
 
     /**

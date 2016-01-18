@@ -70,6 +70,7 @@ define([
         'tweenableCurveCreated'
         ,'activateKeyframePropertyByNameAndMillisecond'
         ,'requestDeselectAllKeyframes'
+        ,'requestResizeScrubberGuide'
       ].forEach(function (event) {
         this.timeline.amplify(this.lateralus, event);
       }.bind(this));
