@@ -19,6 +19,12 @@ define([
   var InfoPanelComponentView = Base.extend({
     template: template
 
+    ,events: {
+      'click .help': function () {
+        this.emit('userRequestToggleHelpModal');
+      }
+    }
+
     /**
      * @param {Object} [options] See http://backbonejs.org/#View-constructor
      */

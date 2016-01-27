@@ -56,6 +56,9 @@ require.config({
   }, {
     name: 'mantra.component.management-panel'
     ,location: 'scripts/components/management-panel'
+  }, {
+    name: 'mantra.component.help'
+    ,location: 'scripts/components/help'
 
   // rekapi-timeline
   }, {
@@ -136,6 +139,12 @@ require.config({
   }, {
     name: 'aenima.component.keybindings'
     ,location: 'bower_components/aenima/components/keybindings'
+  }, {
+    name: 'aenima.component.hidable'
+    ,location: 'bower_components/aenima/components/hidable'
+  }, {
+    name: 'aenima.component.modal'
+    ,location: 'bower_components/aenima/components/modal'
   }]
 });
 

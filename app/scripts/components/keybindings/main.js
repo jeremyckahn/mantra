@@ -28,6 +28,8 @@ define([
      */
     ,keyPressEventMap: {
       SPACE: 'userRequestTogglePreviewPlayback'
+      ,H: 'userRequestToggleHelpModal'
+      ,ESC: 'userRequestCloseModal'
     }
 
     /**

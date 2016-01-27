@@ -9,6 +9,7 @@ define([
   ,'mantra.component.keybindings'
   ,'mantra.component.preview'
   ,'mantra.component.control-panel'
+  ,'mantra.component.help'
 
 ], function (
 
@@ -21,6 +22,7 @@ define([
   ,KeybindingsComponent
   ,PreviewComponent
   ,ControlPanel
+  ,HelpComponent
 
 ) {
   'use strict';
@@ -42,6 +44,10 @@ define([
 
       this.addComponent(ControlPanel, {
         el: this.view.$controlPanel[0]
+      });
+
+      this.addComponent(HelpComponent, {
+        el: this.view.$help[0]
       });
     }
   });
