@@ -1,3 +1,72 @@
 @import 'app/styles/variables'
 
 .help-view
+
+  h1
+    font-size: 5em
+    text-align: center
+    text-transform: uppercase
+
+  img
+    display: block
+    margin: 3em auto
+
+    &.screenshot
+      max-width: 550px
+      width: 50%
+
+    &.screenshot.narrow
+      max-width: 350px
+
+    &.screenshot.wide,
+    &.screenshot.very-wide
+      max-width: none
+
+    &.screenshot.wide
+      width: 75%
+
+    &.screenshot.very-wide
+      width: 90%
+
+  table
+    color: $aenima-modal-text-standout-color
+    font-size: 1.3em
+    margin: 2em auto
+
+    th
+      padding-bottom: 1.5em
+
+    tr
+
+      td
+        padding-bottom: 8px
+
+        &:first-child
+          font-weight: bold
+          padding-right: 40px
+
+  ul
+    line-height: $aenima-modal-list-line-height
+
+    li
+      list-style-type: none
+
+    &.bulleted
+      padding-left: 2.5em
+
+      li
+        list-style-type: disc
+
+      .nested
+        list-style-type: none
+
+        li
+          list-style-type: circle
+
+        ul
+          padding-left: 1.5em
+
+  .badge
+
+    img
+      margin: 0
