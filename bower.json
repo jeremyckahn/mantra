@@ -1,6 +1,6 @@
 {
   "name": "mantra",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "homepage": "https://github.com/jeremyckahn/mantra",
   "dependencies": {
     "aenima": "~0.3.1",
