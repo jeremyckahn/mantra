@@ -4,6 +4,7 @@ define(function () {
   return {
     TRANSIENT_TIMELINE_NAME: '__transientTimeline'
     ,ONION_SKIN_SEGMENTS_PER_SECOND: 10
+    ,ONION_SKIN_DURATION_LIMIT: 1000 * 120
     ,SUPPORTED_PROPERTIES: [
       {  name: 'opacity', defaultValue: 0 }
       ,{ name: 'rotateX', defaultValue: '0deg' }

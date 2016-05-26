@@ -85,6 +85,10 @@ define([
      * @param {number} duration
      */
     ,updateOnionSkinResolutionForTimelineDuration: function (duration) {
+      if (duration > constant.ONION_SKIN_DURATION_LIMIT) {
+        return;
+      }
+
       this.$onionSkin.empty();
       var numSegments =
         Math.ceil((duration / 1000) * constant.ONION_SKIN_SEGMENTS_PER_SECOND);
