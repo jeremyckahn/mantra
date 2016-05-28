@@ -150,6 +150,14 @@ define([
     ,'rekapi:beforeRemoveKeyframeProperty': function () {
       this.emit('requestRecordUndoState');
     }
+
+    ,beginTemporaryTimelineModifications: function () {
+      this.model.set('doPreventUndoRecording', true);
+    }
+
+    ,endTemporaryTimelineModifications: function () {
+      this.model.set('doPreventUndoRecording', false);
+    }
   };
 
   /**

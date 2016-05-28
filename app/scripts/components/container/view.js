@@ -62,6 +62,8 @@ define([
         ,'beforeUserUpdatesKeyframeMillisecondInput'
         ,'beforeUserUpdatesKeyframeCurveSelector'
         ,'change:timelineDuration'
+        ,'beginTemporaryTimelineModifications'
+        ,'endTemporaryTimelineModifications'
       ].forEach(function (event) {
         this.amplify(this.timeline, event);
       }.bind(this));
