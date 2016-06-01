@@ -205,6 +205,17 @@ module.exports = function (grunt) {
             'bower_components/xdLocalStorage/dist/scripts/xdLocalStoragePostMessageApi.min.js'
           ]
         }]
+      },
+      package: {
+        files: [{
+          expand: true,
+          dot: true,
+          cwd: '.',
+          dest: '<%= yeoman.dist %>',
+          src: [
+            'package.json'
+          ]
+        }]
       }
     },
     bower: {
@@ -298,6 +309,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('deploy', [
     'build',
+    'copy:package',
     'gh-pages'
   ]);
 
