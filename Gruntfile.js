@@ -240,16 +240,6 @@ module.exports = function (grunt) {
         push: false
       }
     },
-    rev: {
-      dist: {
-        files: {
-          src: [
-            '<%= yeoman.dist %>/scripts/{,*/}*.js',
-            '<%= yeoman.dist %>/styles/{,*/}*.css'
-          ]
-        }
-      }
-    },
     appcache: {
       options: {
         basePath: '<%= yeoman.dist %>',
@@ -302,7 +292,6 @@ module.exports = function (grunt) {
     'cssmin',
     'uglify',
     'copy',
-    'rev',
     'usemin',
     'appcache'
   ]);
