@@ -23,6 +23,9 @@ define([
 
     ,defaults: {
       savedTimelines: {}
+
+      // TODO: Move doPreventUndoRecording and isLoadingTimeline to the .set in
+      // initialize?
       ,doPreventUndoRecording: false
       ,isLoadingTimeline: false
       ,ui: {
@@ -37,6 +40,10 @@ define([
 
     ,initialize: function () {
       baseProto.initialize.apply(this, arguments);
+
+      this.set({
+        env: window.env || {}
+      });
     }
   });
 
