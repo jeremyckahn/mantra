@@ -1,6 +1,6 @@
 define([
 
-  'aenima.component.management-panel'
+  'aenima/components/management-panel/main'
 
   ,'underscore'
   ,'mustache'

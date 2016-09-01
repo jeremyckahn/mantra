@@ -16,6 +16,15 @@
   width: $CONTROL_PANEL_WIDTH
   +flex-stretch
 
+  @media (max-height: $COMPACT_SCREEN_HEIGHT)
+    bottom: 0
+
+  button
+
+    &.wide
+      font-size: 1.6em
+      padding: 0.3em
+
   .tabs-container
     min-height: 28px
     padding-top: .3em

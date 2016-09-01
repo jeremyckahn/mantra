@@ -1,0 +1,45 @@
+@import 'compass/css3/images'
+@import "compass/css3/flexbox"
+
+$border-width: .75em
+$frame-bar-height: 5em
+$header-gradient-top-color: #fff
+$header-gradient-bottom-color: #ddd
+
+.stylie-view
+  background: rgba(0, 0, 0, 0.4)
+  z-index: 20
+
+  .stylie-wrapper
+    border-radius: 0.5em
+    bottom: $border-width
+    left: $border-width
+    overflow: hidden
+    right: $border-width
+    top: $border-width
+
+    .frame-bar
+      height: $frame-bar-height
+      justify-content: space-between
+      +background-image(linear-gradient(to bottom, $header-gradient-top-color, $header-gradient-bottom-color))
+      +display-flex()
+      +align-items(center)
+
+      h1
+        font-size: 2.5em
+        font-weight: lighter
+
+      .bordered-icon
+        margin: 0 0.6em
+
+        &.confirm
+          +bordered-icon-background($stylie-confirm-button-gradient-inner, $stylie-confirm-button-gradient-outer)
+
+        &.cancel
+          +bordered-icon-background($stylie-cancel-button-gradient-inner, $stylie-cancel-button-gradient-outer)
+
+          i
+            top: 0.05em
+
+    .stylie-container-view
+      top: $frame-bar-height

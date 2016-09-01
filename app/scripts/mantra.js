@@ -6,11 +6,11 @@ define([
 
   ,'./model'
 
-  ,'aenima.component.shifty'
-  ,'mantra.component.rekapi'
-  ,'mantra.component.container'
+  ,'aenima/components/shifty/main'
+  ,'./components/rekapi/main'
+  ,'./components/container/main'
 
-  ,'aenima.utils'
+  ,'aenima/utils'
 
   ,'./constant'
 
@@ -162,11 +162,16 @@ define([
 
   /**
    * @param {Object} timelineData
+   * @param {boolean} preventStackClear
    */
-  fn.loadTimeline = function (timelineData) {
+  fn.loadTimeline = function (timelineData, preventStackClear) {
     this.model.set('isLoadingTimeline', true);
+
     this.emit('requestClearTimeline');
-    this.emit('requestClearUndoStack');
+
+    if (!preventStackClear) {
+      this.emit('requestClearUndoStack');
+    }
 
     this.emit('loadBezierCurves', timelineData.curves);
     this.emit('requestDeselectAllKeyframes');

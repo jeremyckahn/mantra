@@ -6,10 +6,13 @@ define([
   ,'./view'
   ,'text!./template.mustache'
 
-  ,'mantra.component.keybindings'
-  ,'mantra.component.preview'
-  ,'mantra.component.control-panel'
-  ,'mantra.component.help'
+  ,'../keybindings/main'
+  ,'../preview/main'
+  ,'../control-panel/main'
+  ,'../stylie/main'
+  ,'../help/main'
+
+  ,'stylie'
 
 ], function (
 
@@ -22,6 +25,7 @@ define([
   ,KeybindingsComponent
   ,PreviewComponent
   ,ControlPanel
+  ,StylieComponent
   ,HelpComponent
 
 ) {
@@ -35,8 +39,18 @@ define([
     ,View: View
     ,template: template
 
+    ,lateralusEvents: {
+      pauseKeybindings: function () {
+        this.keybindingsComponent.dispose();
+      }
+
+      ,resumeKeybindings: function () {
+        this.initKeybindings();
+      }
+    }
+
     ,initialize: function () {
-      this.keybindingsComponent = this.addComponent(KeybindingsComponent);
+      this.initKeybindings();
 
       this.addComponent(PreviewComponent, {
         el: this.view.$preview[0]
@@ -49,6 +63,14 @@ define([
       this.addComponent(HelpComponent, {
         el: this.view.$help[0]
       });
+
+      this.addComponent(StylieComponent, {
+        el: this.view.$stylie[0]
+      });
+    }
+
+    ,initKeybindings: function () {
+      this.keybindingsComponent = this.addComponent(KeybindingsComponent);
     }
   });
 

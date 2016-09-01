@@ -4,7 +4,7 @@ define([
   ,'lateralus'
   ,'keydrown'
 
-  ,'aenima.component.keybindings'
+  ,'aenima/components/keybindings/main'
 
 ], function (
 
@@ -28,6 +28,7 @@ define([
     ,keyPressEventMap: {
       SPACE: 'userRequestTogglePreviewPlayback'
       ,H: 'userRequestToggleHelpModal'
+      ,T: 'requestOpenStylie'
       ,ESC: 'userRequestCloseModal'
     }
 

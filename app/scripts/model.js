@@ -3,7 +3,7 @@ define([
   'underscore'
   ,'lateralus'
 
-  ,'aenima.model/persisted-model'
+  ,'aenima/models/persisted-model'
 
 ], function (
 

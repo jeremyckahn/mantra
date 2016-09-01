@@ -1,6 +1,6 @@
 define([
 
-  'aenima.component.modal'
+  'aenima/components/modal/main'
 
   ,'./view'
   ,'text!./template.mustache'

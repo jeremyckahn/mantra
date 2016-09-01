@@ -7,11 +7,11 @@ define([
   ,'./view'
   ,'text!./template.mustache'
 
-  ,'aenima.component.control-panel'
-  ,'aenima.component.export-panel'
-  ,'aenima.component.motion-panel'
-  ,'mantra.component.management-panel'
-  ,'mantra.component.info-panel'
+  ,'aenima/components/control-panel/main'
+  ,'aenima/components/export-panel/main'
+  ,'../motion-panel/main'
+  ,'../management-panel/main'
+  ,'../info-panel/main'
 
 ], function (
 

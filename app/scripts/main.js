@@ -13,16 +13,21 @@ require.config({
   ,paths: {
     text: 'bower_components/requirejs-text/text'
     ,jquery: 'bower_components/jquery/dist/jquery'
+    ,'jquery-mousewheel': 'bower_components/jquery-mousewheel/jquery.mousewheel'
     ,'jquery-dragon': 'bower_components/jquery-dragon/src/jquery.dragon'
+    ,'jquery-cubelet': 'bower_components/jquery-cubelet/dist/jquery.cubelet'
     ,backbone: 'bower_components/backbone/backbone'
     ,underscore: 'bower_components/lodash/lodash'
     ,mustache: 'bower_components/mustache/mustache'
     ,shifty: 'bower_components/shifty/dist/shifty'
     ,rekapi: 'bower_components/rekapi/dist/rekapi'
     ,bezierizer: 'bower_components/bezierizer/dist/bezierizer'
-    ,'aenima.constant': 'bower_components/aenima/constant'
-    ,'aenima.utils': 'bower_components/aenima/utils'
     ,keydrown: 'bower_components/keydrown/dist/keydrown'
+
+    // TODO: Remove xdLocalStorage from Stylie and Mantra once Stylie is
+    // integrated into Mantra
+    ,xdLocalStorage:
+      'bower_components/xdLocalStorage/dist/scripts/xdLocalStorage.min'
   }
   ,packages: [{
     name: 'lateralus'
@@ -36,115 +41,16 @@ require.config({
     ,location: 'scripts'
     ,main: 'mantra'
   }, {
-    name: 'mantra.component.rekapi'
-    ,location: 'scripts/components/rekapi'
-  }, {
-    name: 'mantra.component.container'
-    ,location: 'scripts/components/container'
-  }, {
-    name: 'mantra.component.preview'
-    ,location: 'scripts/components/preview'
-  }, {
-    name: 'mantra.component.control-panel'
-    ,location: 'scripts/components/control-panel'
-  }, {
-    name: 'mantra.component.info-panel'
-    ,location: 'scripts/components/info-panel'
-  }, {
-    name: 'mantra.component.keybindings'
-    ,location: 'scripts/components/keybindings'
-  }, {
-    name: 'mantra.component.management-panel'
-    ,location: 'scripts/components/management-panel'
-  }, {
-    name: 'mantra.component.help'
-    ,location: 'scripts/components/help'
-
-  // rekapi-timeline
-  }, {
     name: 'rekapi-timeline'
     ,location: 'bower_components/rekapi-timeline/app/scripts'
     ,main: 'rekapi-timeline'
   }, {
-    name: 'rekapi-timeline.component.container'
-    ,location: 'bower_components/rekapi-timeline/app/scripts/components/container'
+    name: 'stylie'
+    ,location: 'bower_components/stylie/app/scripts'
+    ,main: 'stylie'
   }, {
-    name: 'rekapi-timeline.component.timeline'
-    ,location: 'bower_components/rekapi-timeline/app/scripts/components/timeline'
-  }, {
-    name: 'rekapi-timeline.component.control-bar'
-    ,location: 'bower_components/rekapi-timeline/app/scripts/components/control-bar'
-  }, {
-    name: 'rekapi-timeline.component.details'
-    ,location: 'bower_components/rekapi-timeline/app/scripts/components/details'
-  }, {
-    name: 'rekapi-timeline.component.scrubber'
-    ,location: 'bower_components/rekapi-timeline/app/scripts/components/scrubber'
-  }, {
-    name: 'rekapi-timeline.component.scrubber-detail'
-    ,location: 'bower_components/rekapi-timeline/app/scripts/components/scrubber-detail'
-  }, {
-    name: 'rekapi-timeline.component.animation-tracks'
-    ,location: 'bower_components/rekapi-timeline/app/scripts/components/animation-tracks'
-  }, {
-    name: 'rekapi-timeline.component.actor-tracks'
-    ,location: 'bower_components/rekapi-timeline/app/scripts/components/actor-tracks'
-  }, {
-    name: 'rekapi-timeline.component.keyframe-property-track'
-    ,location: 'bower_components/rekapi-timeline/app/scripts/components/keyframe-property-track'
-  }, {
-    name: 'rekapi-timeline.component.keyframe-property'
-    ,location: 'bower_components/rekapi-timeline/app/scripts/components/keyframe-property'
-  }, {
-    name: 'rekapi-timeline.component.keyframe-property-detail'
-    ,location: 'bower_components/rekapi-timeline/app/scripts/components/keyframe-property-detail'
-
-  // AEnima
-  }, {
-    name: 'aenima.mixin'
-    ,location: 'bower_components/aenima/mixins'
-  }, {
-    name: 'aenima.model'
-    ,location: 'bower_components/aenima/models'
-  }, {
-    name: 'aenima.component.shifty'
-    ,location: 'bower_components/aenima/components/shifty'
-  }, {
-    name: 'aenima.component.rekapi'
-    ,location: 'bower_components/aenima/components/rekapi'
-  }, {
-    name: 'aenima.component.control-panel'
-    ,location: 'bower_components/aenima/components/control-panel'
-  }, {
-    name: 'aenima.component.export-panel'
-    ,location: 'bower_components/aenima/components/export-panel'
-  }, {
-    name: 'aenima.component.css-export-panel'
-    ,location: 'bower_components/aenima/components/css-export-panel'
-  }, {
-    name: 'aenima.component.rekapi-export-panel'
-    ,location: 'bower_components/aenima/components/rekapi-export-panel'
-  }, {
-    name: 'aenima.component.bezierizer'
-    ,location: 'bower_components/aenima/components/bezierizer'
-  }, {
-    name: 'aenima.component.curve-selector'
-    ,location: 'bower_components/aenima/components/curve-selector'
-  }, {
-    name: 'aenima.component.motion-panel'
-    ,location: 'bower_components/aenima/components/motion-panel'
-  }, {
-    name: 'aenima.component.management-panel'
-    ,location: 'bower_components/aenima/components/management-panel'
-  }, {
-    name: 'aenima.component.keybindings'
-    ,location: 'bower_components/aenima/components/keybindings'
-  }, {
-    name: 'aenima.component.hidable'
-    ,location: 'bower_components/aenima/components/hidable'
-  }, {
-    name: 'aenima.component.modal'
-    ,location: 'bower_components/aenima/components/modal'
+    name: 'aenima'
+    ,location: 'bower_components/aenima'
   }]
 });
 

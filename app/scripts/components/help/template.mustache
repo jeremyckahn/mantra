@@ -30,10 +30,10 @@
     <p>You can save your animations to <a href="http://www.html5rocks.com/en/features/storage" target="_blank">HTML5 Local Storage</a>.  To do this, open the <i class="glyphicon glyphicon-cog"></i> panel and type in the name of your animation.  You can also recall saved animations from here.</p>
     <img src="img/save_load.png" class="screenshot" alt="A screenshot of the Gear Panel.">
     <p>If you'd like to clear out the timeline and start over, click the <strong>Reset timeline</strong> button.</p>
-    <h2>Stylie integration</h2>
-    <p>Mantra can be used by itself, but it is more powerful when combined with <a href="http://jeremyckahn.github.io/stylie/" target="_blank">Stylie</a>.  To export an animation from Stylie to Mantra, click the green <i class="glyphicon glyphicon-open"></i> button in Stylie's top bar.  <strong>This functionality is only supported in Chrome and Firefox browsers.</strong></p>
-    <img src="img/stylie.png" class="screenshot wide" alt="A screenshot of the Motion Panel.">
-    <p>A recommended workflow is to create the basic shape of your animation with Stylie, and then export it to Mantra for more fine-grained modification before generating the code.  You can generate the appropriate animation CSS or JSON from either tool.</p>
+    <h2>Tween Editor</h2>
+    <p><a href="http://jeremyckahn.github.io/stylie/" target="_blank">Stylie</a> is a powerful tool for quickly and easily modifying animations, and it is embedded into Mantra as the <strong>Tween Editor</strong>.  To open it, press the <strong>T key</strong> on your keyboard.  When you have tweaked the animation to your liking in the Tween Editor, you can then export it for more fine-grained modification in Mantra's Timeline Editor by pressing the green <i class="glyphicon glyphicon-ok"></i> button in the upper-right of the screen.  You can also close Stylie by pressing the red <i class="glyphicon glyphicon-remove"></i> button in the upper-left, or by pressing the <strong>Escape key</strong>.</p>
+    <p>The Stylie-based Tween Editor has many powerful features.  To learn more about how to use it effectively, head over to the <a href="http://jeremyckahn.github.io/stylie/" target="_blank">standalone Stylie application</a> and check out its manual (hit the yellow <strong>?</strong> button at the top or press the <strong>H</strong> key).</p>
+    <img src="img/tween-editor.png" class="screenshot wide" alt="A screenshot of the Tween Editor.">
     <h2>Keyboard shortcuts</h2>
     <p>Mantra has a few keyboard-activated features:</p>
     <table>
@@ -49,15 +49,74 @@
         </tr>
         <tr>
           <td>O</td>
-          <td>Toggle onion skin view</td>
+          <td>Toggle Onion Skin view</td>
+        </tr>
+        <tr>
+          <td>T</td>
+          <td>Launch Tween Editor</td>
+        </tr>
+        <tr>
+          <td>Space bar</td>
+          <td>Play/pause the animation</td>
+        </tr>
+        <tr>
+          <td>{{metaKey}} + Z</td>
+          <td>Undo last timeline change</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Tween Editor keyboard shortcuts</h3>
+    <p>These shortcuts become active when the Tween Editor is open.</p>
+    <table>
+      <thead>
+        <tr>
+          <th colspan="2"><em>(When no inputs are focused)</em></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>R</td>
+          <td>Toggle keyframe rotation Cubelets</td>
+        </tr>
+        <tr>
+          <td>K</td>
+          <td>Add a new Keyframe</td>
+        </tr>
+        <tr>
+          <td>C</td>
+          <td>Toggle the Control Pane</td>
+        </tr>
+        <tr>
+          <td>T</td>
+          <td>Toggle the Timeline Scrubber</td>
+        </tr>
+        <tr>
+          <td>H</td>
+          <td>Toggle this Help screen</td>
+        </tr>
+        <tr>
+          <td>P</td>
+          <td>Toggle this crosshairs and path guide</td>
         </tr>
         <tr>
           <td>Space bar</td>
           <td>Play/Pause the animation</td>
         </tr>
         <tr>
+          <td>Esc</td>
+          <td>Close the Tween Editor</td>
+        </tr>
+        <tr>
+          <td>Shift + crosshair click</td>
+          <td>Select multiple keyframes</td>
+        </tr>
+        <tr>
           <td>{{metaKey}} + Z</td>
           <td>Undo last timeline change</td>
+        </tr>
+        <tr>
+          <td>{{metaKey}} + A</td>
+          <td>Select all keyframes</td>
         </tr>
       </tbody>
     </table>
@@ -74,6 +133,7 @@
         </ul>
       </li>
       <li><a href="https://github.com/jeremyckahn/rekapi-timeline" target="_blank">rekapi-timeline</a></li>
+      <li><a href="https://github.com/jeremyckahn/stylie" target="_blank">Stylie</a></li>
       <li><a href="https://github.com/Jellyvision/lateralus" target="_blank">Lateralus</a></li>
       <li class="nested">
         <ul>

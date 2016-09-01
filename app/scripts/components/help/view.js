@@ -5,9 +5,9 @@ define([
 
   ,'text!./template.mustache'
 
-  ,'aenima.component.modal'
+  ,'aenima/components/modal/main'
 
-  ,'aenima.utils'
+  ,'aenima/utils'
 
 ], function (
 
@@ -32,6 +32,10 @@ define([
     ,lateralusEvents: _.extend({
       userRequestToggleHelpModal: function () {
         this.hidableView.toggle();
+      }
+
+      ,requestQuickCloseHelp: function () {
+        this.hidableView.quickHide();
       }
     }, baseProto.lateralusEvents)
 

@@ -4,7 +4,7 @@ define([
 
   ,'text!./template.mustache'
 
-  ,'aenima.component.control-panel'
+  ,'aenima/components/control-panel/main'
 
 ], function (
 

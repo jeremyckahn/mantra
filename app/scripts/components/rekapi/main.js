@@ -5,7 +5,7 @@ define([
   ,'lateralus'
   ,'rekapi'
 
-  ,'aenima.component.rekapi'
+  ,'aenima/components/rekapi/main'
 
 ], function (
 
