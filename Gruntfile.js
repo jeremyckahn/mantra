@@ -202,7 +202,8 @@ module.exports = function (grunt) {
           dest: '<%= yeoman.dist %>',
           src: [
             'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
-            'bower_components/xdLocalStorage/dist/scripts/xdLocalStoragePostMessageApi.min.js'
+            'bower_components/xdLocalStorage/dist/scripts/xdLocalStoragePostMessageApi.min.js',
+            'bower_components/stylie/app/img/*'
           ]
         }]
       },
