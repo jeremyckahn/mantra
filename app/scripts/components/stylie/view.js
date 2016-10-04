@@ -53,10 +53,17 @@ define([
           customCurves.forEach(function (customCurve) {
             this.stylie.trigger('setCustomCurve', customCurve);
           }.bind(this));
+
         }.bind(this));
 
         $body.on('keydown', this.escapeHandler);
         this.hidableView.quickShow();
+
+        // Force the focus away from anything in background so that it cannot
+        // be selected once Stylie is opened.
+        //
+        // This feels like a dirty hack, but I couldn't find a better solution.
+        this.$('button').focus();
       }
 
       ,requestCloseStylie: function () {
