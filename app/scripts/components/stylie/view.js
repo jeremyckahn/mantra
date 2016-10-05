@@ -64,6 +64,7 @@ define([
         //
         // This feels like a dirty hack, but I couldn't find a better solution.
         this.$('button').focus();
+        $(document.activeElement).blur();
       }
 
       ,requestCloseStylie: function () {
