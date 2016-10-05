@@ -3,7 +3,7 @@
   "version": "0.8.3",
   "homepage": "https://github.com/jeremyckahn/mantra",
   "dependencies": {
-    "aenima": "~0.6.0",
+    "aenima": "~0.7.0",
     "backbone": "1.2.1",
     "bezierizer": "~0.1.0",
     "bootstrap-sass-official": "~3.2.0",

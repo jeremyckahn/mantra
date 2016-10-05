@@ -57,7 +57,7 @@ define([
         }.bind(this));
 
         $body.on('keydown', this.escapeHandler);
-        this.hidableView.quickShow();
+        this.hidableView.quickFadeIn();
 
         // Force the focus away from anything in background so that it cannot
         // be selected once Stylie is opened.
