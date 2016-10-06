@@ -23,11 +23,6 @@ require.config({
     ,rekapi: 'bower_components/rekapi/dist/rekapi'
     ,bezierizer: 'bower_components/bezierizer/dist/bezierizer'
     ,keydrown: 'bower_components/keydrown/dist/keydrown'
-
-    // TODO: Remove xdLocalStorage from Stylie and Mantra once Stylie is
-    // integrated into Mantra
-    ,xdLocalStorage:
-      'bower_components/xdLocalStorage/dist/scripts/xdLocalStorage.min'
   }
   ,packages: [{
     name: 'lateralus'

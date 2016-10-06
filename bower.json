@@ -15,8 +15,7 @@
     "rekapi": "~1.7.1",
     "rekapi-timeline": "~0.4.1",
     "requirejs": "~2.1.20",
-    "xdLocalStorage": "~2.0.1",
-    "stylie": "^2.6.2"
+    "stylie": "^2.6.3"
   },
   "resolutions": {
     "backbone": "1.2.1",
