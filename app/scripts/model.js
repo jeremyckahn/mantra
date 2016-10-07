@@ -5,12 +5,16 @@ define([
 
   ,'aenima/models/persisted-model'
 
+  ,'aenima/utils'
+
 ], function (
 
   _
   ,Lateralus
 
   ,PersistedModel
+
+  ,utils
 
 ) {
   'use strict';
@@ -43,6 +47,7 @@ define([
 
       this.set({
         env: window.env || {}
+        ,hasApi: !!utils.getQueryParam('hasApi')
       });
     }
   });

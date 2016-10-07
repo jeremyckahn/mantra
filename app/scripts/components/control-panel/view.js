@@ -1,6 +1,7 @@
 define([
 
-  'lateralus'
+  'lodash'
+  ,'lateralus'
 
   ,'text!./template.mustache'
 
@@ -8,7 +9,8 @@ define([
 
 ], function (
 
-  Lateralus
+  _
+  ,Lateralus
 
   ,template
 
@@ -34,6 +36,15 @@ define([
      */
     ,initialize: function () {
       baseProto.initialize.apply(this, arguments);
+    }
+
+    /**
+     * @override
+     */
+    ,getTemplateRenderData: function () {
+      return _.extend({
+        showUserPanel: this.lateralus.model.get('hasApi')
+      }, baseProto.getTemplateRenderData.apply(this, arguments));
     }
   });
 

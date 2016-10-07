@@ -4,6 +4,11 @@
 
 require.config({
   baseUrl: '/'
+  ,map: {
+    '*': {
+      'lodash': 'underscore'
+    }
+  }
   ,shim: {
     bootstrap: {
       deps: ['jquery']

@@ -9,6 +9,7 @@ define([
 
   ,'aenima/components/control-panel/main'
   ,'aenima/components/export-panel/main'
+  ,'aenima/components/user-panel/main'
   ,'../motion-panel/main'
   ,'../management-panel/main'
   ,'../info-panel/main'
@@ -24,6 +25,7 @@ define([
 
   ,AEnimaControlPanelComponent
   ,ExportPanelComponent
+  ,UserPanelComponent
   ,MotionPanelComponent
   ,ManagementPanelComponent
   ,InfoPanelComponent
@@ -86,6 +88,13 @@ define([
           InfoPanelComponent, {
         el: this.view.$infoPanel[0]
       });
+
+      if (this.view.$userPanel) {
+        this.userPanelComponent =
+            this.addComponent(UserPanelComponent, {
+          el: this.view.$userPanel
+        });
+      }
     }
   });
 
