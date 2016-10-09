@@ -3,6 +3,7 @@ define(function () {
 
   return {
     TRANSIENT_TIMELINE_NAME: '__transientTimeline'
+    ,API_ROOT: 'http://localhost:8666/api'
     ,ONION_SKIN_SEGMENTS_PER_SECOND: 10
     ,ONION_SKIN_DURATION_LIMIT: 1000 * 120
     ,SUPPORTED_PROPERTIES: [

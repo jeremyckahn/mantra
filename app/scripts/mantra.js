@@ -6,6 +6,8 @@ define([
 
   ,'./model'
 
+  ,'aenima/data-adapter'
+
   ,'aenima/components/shifty/main'
   ,'./components/rekapi/main'
   ,'./components/container/main'
@@ -21,6 +23,8 @@ define([
   ,Rekapi
 
   ,MantraModel
+
+  ,DataAdapter
 
   ,ShiftyComponent
   ,RekapiComponent
@@ -42,6 +46,11 @@ define([
     Lateralus.apply(this, arguments);
     this.initHacks();
     this.hasInitialized = false;
+
+    this.dataAdapter = new DataAdapter({
+      apiRoot: constant.API_ROOT
+    });
+
     this.shiftyComponent = this.addComponent(ShiftyComponent);
     this.rekapiComponent = this.addComponent(RekapiComponent);
     this.rekapi = this.rekapiComponent.rekapi;
