@@ -8,6 +8,7 @@ define([
 
   ,'aenima/data-adapter'
 
+  ,'aenima/mixins/lateralus'
   ,'aenima/components/shifty/main'
   ,'./components/rekapi/main'
   ,'./components/container/main'
@@ -26,6 +27,7 @@ define([
 
   ,DataAdapter
 
+  ,LateralusMixins
   ,ShiftyComponent
   ,RekapiComponent
   ,ContainerComponent
@@ -61,7 +63,7 @@ define([
 
   var fn = Mantra.prototype;
 
-  fn.lateralusEvents = {
+  fn.lateralusEvents = _.extend({
     rekapiTimelineInitialized: function () {
       var savedTimelines = this.model.get('savedTimelines');
       var transientTimeline = savedTimelines[constant.TRANSIENT_TIMELINE_NAME];
@@ -167,7 +169,9 @@ define([
     ,endTemporaryTimelineModifications: function () {
       this.model.set('doPreventUndoRecording', false);
     }
-  };
+  }, LateralusMixins.lateralusEvents);
+
+  _.extend(fn, LateralusMixins.fn);
 
   /**
    * @param {Object} timelineData
