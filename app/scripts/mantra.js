@@ -57,6 +57,7 @@ define([
     this.rekapiComponent = this.addComponent(RekapiComponent);
     this.rekapi = this.rekapiComponent.rekapi;
     this.containerComponent = this.addComponent(ContainerComponent);
+    this.postInitialize();
   }, {
     Model: MantraModel
   });

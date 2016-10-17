@@ -4,6 +4,7 @@ define([
   ,'lateralus'
 
   ,'aenima/models/persisted-model'
+  ,'aenima/mixins/lateralus.model'
 
   ,'aenima/utils'
 
@@ -13,6 +14,7 @@ define([
   ,Lateralus
 
   ,PersistedModel
+  ,AEnimaLateralusModelMixin
 
   ,utils
 
@@ -49,8 +51,12 @@ define([
         env: window.env || {}
         ,hasApi: !!utils.getQueryParam('hasApi')
       });
+
+      this.postInitialize();
     }
   });
+
+  _.extend(MantraModel.prototype, AEnimaLateralusModelMixin.fn);
 
   return MantraModel;
 });
