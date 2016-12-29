@@ -15,14 +15,13 @@ Mantra can either be used at http://jeremyckahn.github.io/mantra/ or installed a
 System requirements:
 
 * [NodeJS](http://nodejs.org/)/NPM,
-* [Bower](http://bower.io/) (version 1.0 or above)
 * [Grunt](http://gruntjs.com/)
 * [Sass](http://sass-lang.com/) and [Compass](http://compass-style.org/)
 
 Clone this repo and install the dependencies:
 
 ````
-npm install && bower install
+npm install
 ````
 
 To run the app:

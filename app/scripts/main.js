@@ -11,41 +11,41 @@ require.config({
     }
   }
   ,paths: {
-    text: 'bower_components/requirejs-text/text'
-    ,jquery: 'bower_components/jquery/dist/jquery'
-    ,'jquery-mousewheel': 'bower_components/jquery-mousewheel/jquery.mousewheel'
-    ,'jquery-dragon': 'bower_components/jquery-dragon/src/jquery.dragon'
-    ,'jquery-cubelet': 'bower_components/jquery-cubelet/dist/jquery.cubelet'
-    ,backbone: 'bower_components/backbone/backbone'
-    ,underscore: 'bower_components/lodash/lodash'
-    ,mustache: 'bower_components/mustache/mustache'
-    ,shifty: 'bower_components/shifty/dist/shifty'
-    ,rekapi: 'bower_components/rekapi/dist/rekapi'
-    ,bezierizer: 'bower_components/bezierizer/dist/bezierizer'
-    ,keydrown: 'bower_components/keydrown/dist/keydrown'
+    text: 'node_modules/requirejs-text/text'
+    ,jquery: 'node_modules/jquery/dist/jquery'
+    ,'jquery-mousewheel': 'node_modules/jquery-mousewheel/jquery.mousewheel'
+    ,'jquery-dragon': 'node_modules/jquery-dragon/src/jquery.dragon'
+    ,'jquery-cubelet': 'node_modules/jquery-cubelet/dist/jquery.cubelet'
+    ,backbone: 'node_modules/backbone/backbone'
+    ,underscore: 'node_modules/lodash/index'
+    ,mustache: 'node_modules/mustache/mustache'
+    ,shifty: 'node_modules/shifty/dist/shifty'
+    ,rekapi: 'node_modules/rekapi/dist/rekapi'
+    ,bezierizer: 'node_modules/bezierizer/dist/bezierizer'
+    ,keydrown: 'node_modules/keydrown/dist/keydrown'
   }
   ,packages: [{
     name: 'lateralus'
-    ,location: 'bower_components/lateralus/scripts'
+    ,location: 'node_modules/lateralus/scripts'
     ,main: 'lateralus'
   }, {
     name: 'lateralus.component.tabs'
-    ,location: 'bower_components/lateralus-components/tabs'
+    ,location: 'node_modules/lateralus-components/tabs'
   }, {
     name: 'mantra'
     ,location: 'scripts'
     ,main: 'mantra'
   }, {
     name: 'rekapi-timeline'
-    ,location: 'bower_components/rekapi-timeline/app/scripts'
+    ,location: 'node_modules/rekapi-timeline/app/scripts'
     ,main: 'rekapi-timeline'
   }, {
     name: 'stylie'
-    ,location: 'bower_components/stylie/app/scripts'
+    ,location: 'node_modules/@jeremyckahn/stylie/app/scripts'
     ,main: 'stylie'
   }, {
     name: 'aenima'
-    ,location: 'bower_components/aenima'
+    ,location: 'node_modules/aenima'
   }]
 });
 
