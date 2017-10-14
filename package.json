@@ -3,7 +3,7 @@
   "version": "0.8.4",
   "license": "CC BY-NC-SA",
   "dependencies": {
-    "aenima": "0.7.1",
+    "aenima": "0.8.0",
     "backbone": "1.2.1",
     "bezierizer": "0.1.0",
     "bootstrap-sass": "3.2.0",
@@ -12,10 +12,10 @@
     "lateralus": "~0.9.3",
     "lodash": "3.10.1",
     "mustache": "^2.3.0",
-    "rekapi": "~1.7.1",
+    "rekapi": "~2.0.6",
     "rekapi-timeline": "~0.5.1",
     "requirejs": "~2.1.20",
-    "@jeremyckahn/stylie": "^2.6.3"
+    "@jeremyckahn/stylie": "^2.8.0"
   },
   "devDependencies": {
     "connect-livereload": "~0.3.2",
@@ -41,11 +41,23 @@
     "jshint-stylish": "~0.1.5",
     "load-grunt-tasks": "~0.3.0",
     "nodemon": "^1.9.2",
-    "time-grunt": "~0.2.8"
+    "time-grunt": "~0.2.8",
+    "babel-loader": "^7.1.2",
+    "css-loader": "^0.28.7",
+    "file-loader": "^0.11.2",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "clean-webpack-plugin": "^0.1.17",
+    "copy-webpack-plugin": "^4.1.1",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.8.2"
   },
   "scripts": {
     "postinstall": "rm -f app/node_modules && ln -s ../node_modules app/node_modules",
-    "fast-build:watch": "nodemon --watch app/scripts --exec \"grunt fast-build\""
+    "fast-build:watch": "nodemon --watch app/scripts --exec \"grunt fast-build\"",
+    "start": "webpack-dev-server",
+    "build": "webpack"
   },
   "engines": {
     "node": ">=0.10.0"
