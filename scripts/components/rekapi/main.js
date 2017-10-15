@@ -146,14 +146,16 @@ define([
         this.emit('requestResetRenderedActorState');
       }
 
-      baseProto.update.apply(this, arguments);
+      const { rekapi } = this;
+      rekapi.update.apply(rekapi, arguments);
     }
 
     /**
      * @override
      */
     ,exportTimeline: function () {
-      var timeline = baseProto.exportTimeline.apply(this, arguments);
+      const { rekapi } = this;
+      var timeline = rekapi.exportTimeline.apply(rekapi, arguments);
 
       var activeKeyframeProperties = this.collect('activeKeyframeProperties');
 

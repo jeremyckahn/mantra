@@ -221,7 +221,9 @@ define([
   fn.setupInitialState = function () {
     this.emit('requestNewCurve');
 
-    this.collectOne('currentActorModel')
+    const actor = this.collectOne('currentActorModel').attributes;
+
+    actor
       .keyframe(0, {
         translateX: '100px'
         ,translateY: '100px'
