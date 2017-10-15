@@ -14,6 +14,8 @@ define([
 
   ,'./constant'
 
+  ,'../styles/main.sass'
+
 ], function (
 
   _
@@ -175,7 +177,7 @@ define([
 
     this.emit('loadBezierCurves', timelineData.curves);
     this.emit('requestDeselectAllKeyframes');
-    this.rekapiComponent.importTimeline(timelineData);
+    this.rekapiComponent.rekapi.importTimeline(timelineData);
     this.model.set('isLoadingTimeline', false);
 
     // rekapi:timelineModified events are not triggered during or at the end of
