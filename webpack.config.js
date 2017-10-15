@@ -36,6 +36,8 @@ module.exports = {
       lateralus: rootDir('node_modules/lateralus/dist/lateralus'),
       'lateralus.component.tabs': rootDir('node_modules/lateralus-components/tabs/main'),
       aenima: rootDir('node_modules/aenima'),
+      'rekapi-timeline': rootDir('node_modules/rekapi-timeline/scripts/rekapi-timeline'),
+      '@jeremyckahn/stylie': rootDir('node_modules/@jeremyckahn/stylie/scripts/stylie'),
       bezierizer: rootDir('node_modules/bezierizer/dist/bezierizer')
     }
   },
@@ -49,6 +51,8 @@ module.exports = {
           rootDir('node_modules/shifty'),
           rootDir('node_modules/rekapi'),
           rootDir('node_modules/aenima'),
+          rootDir('node_modules/rekapi-timeline'),
+          rootDir('node_modules/@jeremyckahn'),
           rootDir('node_modules/webpack-dev-server')
         ]
       }, {
@@ -67,7 +71,8 @@ module.exports = {
           options: {
             sourceMap: true,
             includePaths: [
-              path.resolve(__dirname, './node_modules/compass-mixins/lib')
+              path.resolve(__dirname, './node_modules/compass-mixins/lib'),
+              path.resolve(__dirname, './node_modules/@jeremyckahn/stylie')
             ]
           }
         }]
@@ -93,6 +98,6 @@ module.exports = {
     new Webpack.BannerPlugin(version)
   ],
   devServer: {
-    port: 9013
+    port: 9006
   }
 };

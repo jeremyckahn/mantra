@@ -10,7 +10,7 @@ define([
 ], function (
 
   Lateralus
-  ,Rekapi
+  ,rekapi
 
   ,template
 
@@ -21,7 +21,7 @@ define([
 
   var Base = Lateralus.Component.View;
   var baseProto = Base.prototype;
-  var onionSkinRekapi = new Rekapi(document.createElement('div'));
+  var onionSkinRekapi = new rekapi.Rekapi(document.createElement('div'));
 
   var PreviewComponentView = Base.extend({
     template: template

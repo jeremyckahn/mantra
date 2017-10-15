@@ -6,7 +6,7 @@ define([
 
   ,'text!./template.mustache'
 
-  ,'stylie'
+  ,'@jeremyckahn/stylie'
 
   ,'aenima/components/hidable/main'
 
@@ -44,7 +44,7 @@ define([
 
         this.stylie = new Stylie(this.$stylieRoot[0], {
           isEmbedded: true
-          ,embeddedImgRoot: 'node_modules/stylie/app/'
+          ,embeddedImgRoot: 'node_modules/stylie/'
         });
 
         // This has to be _.deferred so as to overwrite the custom curves set
