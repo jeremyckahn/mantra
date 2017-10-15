@@ -44,7 +44,7 @@ define([
 
         this.stylie = new Stylie(this.$stylieRoot[0], {
           isEmbedded: true
-          ,embeddedImgRoot: 'node_modules/stylie/'
+          ,embeddedImgRoot: 'node_modules/@jeremyckahn/stylie/'
         });
 
         // This has to be _.deferred so as to overwrite the custom curves set
