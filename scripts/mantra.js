@@ -115,7 +115,7 @@ define([
       });
 
       this.emit('requestClearTimeline');
-      this.rekapiComponent.addActor();
+      this.rekapiComponent.rekapi.addActor();
       this.setupInitialState();
       this.rekapiComponent.update();
 
