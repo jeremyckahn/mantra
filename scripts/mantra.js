@@ -221,6 +221,7 @@ define([
   };
 
   fn.setupInitialState = function () {
+    this.model.set('doPreventUndoRecording', true);
     this.emit('requestNewCurve');
 
     const actor = this.collectOne('currentActorModel').attributes;
@@ -236,6 +237,8 @@ define([
         ,translateY: '100px'
         ,rotateZ: '0deg'
       });
+
+    this.model.set('doPreventUndoRecording', false);
   };
 
   fn.initHacks = function () {

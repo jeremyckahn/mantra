@@ -129,11 +129,20 @@ define([
 
     /**
      * @return {Object}
+     * @override
      */
     ,toJSON: function () {
       var exportData = this.exportTimeline();
 
       return exportData;
+    }
+
+    /**
+     * @param {Object} animationData
+     * @override
+     */
+    ,fromJSON: function (animationData) {
+      this.rekapi.importTimeline(animationData);
     }
 
     /**
