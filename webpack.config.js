@@ -27,9 +27,12 @@ module.exports = {
     alias: {
       underscore: 'lodash',
       lodash: rootDir('node_modules/lodash/index.js'),
+      jquery: rootDir('node_modules/jquery/dist/jquery'),
       'jquery-mousewheel': rootDir('node_modules/jquery-mousewheel/jquery.mousewheel'),
       'jquery-dragon': rootDir('node_modules/jquery-dragon/src/jquery.dragon'),
       'jquery-cubelet': rootDir('node_modules/jquery-cubelet/dist/jquery.cubelet'),
+      backbone: rootDir('node_modules/backbone/backbone'),
+      mustache: rootDir('node_modules/mustache/mustache'),
       rekapi: rootDir('node_modules/rekapi/src/main'),
       shifty: rootDir('node_modules/shifty/src/main'),
       keydrown: rootDir('node_modules/keydrown/dist/keydrown'),
