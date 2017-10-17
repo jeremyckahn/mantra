@@ -25,23 +25,23 @@ module.exports = {
     ],
     symlinks: false,
     alias: {
-      underscore: 'lodash',
-      lodash: rootDir('node_modules/lodash/index.js'),
-      jquery: rootDir('node_modules/jquery/dist/jquery'),
-      'jquery-mousewheel': rootDir('node_modules/jquery-mousewheel/jquery.mousewheel'),
-      'jquery-dragon': rootDir('node_modules/jquery-dragon/src/jquery.dragon'),
+      '@jeremyckahn/stylie': rootDir('node_modules/@jeremyckahn/stylie/scripts/stylie'),
       'jquery-cubelet': rootDir('node_modules/jquery-cubelet/dist/jquery.cubelet'),
+      'jquery-dragon': rootDir('node_modules/jquery-dragon/src/jquery.dragon'),
+      'jquery-mousewheel': rootDir('node_modules/jquery-mousewheel/jquery.mousewheel'),
+      'lateralus.component.tabs': rootDir('node_modules/lateralus-components/tabs/main'),
+      'rekapi-timeline': rootDir('node_modules/rekapi-timeline/scripts/rekapi-timeline'),
+      aenima: rootDir('node_modules/aenima'),
       backbone: rootDir('node_modules/backbone/backbone'),
+      bezierizer: rootDir('node_modules/bezierizer/dist/bezierizer'),
+      jquery: rootDir('node_modules/jquery/dist/jquery'),
+      keydrown: rootDir('node_modules/keydrown/dist/keydrown'),
+      lateralus: rootDir('node_modules/lateralus/dist/lateralus'),
+      lodash: rootDir('node_modules/lodash/index.js'),
       mustache: rootDir('node_modules/mustache/mustache'),
       rekapi: rootDir('node_modules/rekapi/src/main'),
       shifty: rootDir('node_modules/shifty/src/main'),
-      keydrown: rootDir('node_modules/keydrown/dist/keydrown'),
-      lateralus: rootDir('node_modules/lateralus/dist/lateralus'),
-      'lateralus.component.tabs': rootDir('node_modules/lateralus-components/tabs/main'),
-      aenima: rootDir('node_modules/aenima'),
-      'rekapi-timeline': rootDir('node_modules/rekapi-timeline/scripts/rekapi-timeline'),
-      '@jeremyckahn/stylie': rootDir('node_modules/@jeremyckahn/stylie/scripts/stylie'),
-      bezierizer: rootDir('node_modules/bezierizer/dist/bezierizer')
+      underscore: 'lodash'
     }
   },
   module: {
@@ -74,7 +74,7 @@ module.exports = {
           options: {
             sourceMap: true,
             includePaths: [
-              path.resolve(__dirname, './node_modules/compass-mixins/lib')
+              rootDir('node_modules/compass-mixins/lib')
             ]
           }
         }]
