@@ -18,7 +18,7 @@
     "lodash": "3.10.1",
     "mustache": "^2.3.0",
     "rekapi": "~2.0.6",
-    "rekapi-timeline": "~0.5.1",
+    "rekapi-timeline": "~0.6.1",
     "requirejs": "~2.1.20",
     "shifty": "^2.3.0"
   },
