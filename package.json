@@ -1,5 +1,5 @@
 {
-  "name": "mantra",
+  "name": "@jeremyckahn/mantra",
   "version": "1.0.0-alpha-1",
   "license": "CC BY-NC-SA",
   "dependencies": {
