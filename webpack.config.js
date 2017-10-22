@@ -2,6 +2,7 @@ const path = require('path');
 const Webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const AppCachePlugin = require('appcache-webpack-plugin');
 
 const { version } = require('./package.json');
 
@@ -98,7 +99,11 @@ module.exports = {
       { from: 'index.html' },
       { from: 'img', to: 'img' }
     ]),
-    new Webpack.BannerPlugin(version)
+    new Webpack.BannerPlugin(version),
+    new AppCachePlugin({
+      exclude: [/DS_Store/],
+      output: 'manifest.appcache'
+    })
   ],
   devServer: {
     port: 9006
