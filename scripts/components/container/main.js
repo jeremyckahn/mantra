@@ -12,8 +12,6 @@ define([
   ,'../stylie/main'
   ,'../help/main'
 
-  ,'stylie'
-
 ], function (
 
   Lateralus

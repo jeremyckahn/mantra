@@ -14,6 +14,8 @@ define([
 
   ,'./constant'
 
+  ,'../styles/main.sass'
+
 ], function (
 
   _
@@ -113,7 +115,7 @@ define([
       });
 
       this.emit('requestClearTimeline');
-      this.rekapiComponent.addActor();
+      this.rekapiComponent.rekapi.addActor();
       this.setupInitialState();
       this.rekapiComponent.update();
 
@@ -175,7 +177,7 @@ define([
 
     this.emit('loadBezierCurves', timelineData.curves);
     this.emit('requestDeselectAllKeyframes');
-    this.rekapiComponent.importTimeline(timelineData);
+    this.rekapiComponent.rekapi.importTimeline(timelineData);
     this.model.set('isLoadingTimeline', false);
 
     // rekapi:timelineModified events are not triggered during or at the end of
@@ -219,9 +221,12 @@ define([
   };
 
   fn.setupInitialState = function () {
+    this.model.set('doPreventUndoRecording', true);
     this.emit('requestNewCurve');
 
-    this.collectOne('currentActorModel')
+    const actor = this.collectOne('currentActorModel').attributes;
+
+    actor
       .keyframe(0, {
         translateX: '100px'
         ,translateY: '100px'
@@ -232,6 +237,8 @@ define([
         ,translateY: '100px'
         ,rotateZ: '0deg'
       });
+
+    this.model.set('doPreventUndoRecording', false);
   };
 
   fn.initHacks = function () {
