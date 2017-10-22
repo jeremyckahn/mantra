@@ -95,7 +95,8 @@ module.exports = {
       sourceMap: true
     }),
     new CopyWebpackPlugin([
-      { from: 'index.html' }
+      { from: 'index.html' },
+      { from: 'img', to: 'img' }
     ]),
     new Webpack.BannerPlugin(version)
   ],
