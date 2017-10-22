@@ -32,6 +32,8 @@
     "copy-webpack-plugin": "^4.1.1",
     "css-loader": "^0.28.7",
     "file-loader": "^0.11.2",
+    "gh-pages": "^1.0.0",
+    "jshint": "^2.9.4",
     "node-sass": "^4.5.3",
     "nodemon": "^1.9.2",
     "raw-loader": "^0.5.1",
@@ -41,9 +43,12 @@
     "webpack-dev-server": "^2.8.2"
   },
   "scripts": {
-    "fast-build:watch": "nodemon --watch app/scripts --exec \"grunt fast-build\"",
     "start": "webpack-dev-server",
-    "build": "webpack"
+    "build": "webpack",
+    "lint": "jshint --config=.jshintrc scripts/**.js",
+    "deploy": "npm run build && gh-pages -d dist -b gh-pages",
+    "preversion": "npm run lint",
+    "postversion": "git push && git push --tags && npm run deploy && npm publish"
   },
   "engines": {
     "node": ">=0.10.0"
