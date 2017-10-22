@@ -6,7 +6,7 @@
 
 Mantra is a timeline editing tool for web animations.  It is inspired by tools such as Adobe Flash and After Effects.
 
-![Mantra screenshot](app/img/screenshot.png)
+![Mantra screenshot](img/screenshot.png)
 
 Mantra can either be used at http://jeremyckahn.github.io/mantra/ or installed and run locally.
 
@@ -15,8 +15,6 @@ Mantra can either be used at http://jeremyckahn.github.io/mantra/ or installed a
 System requirements:
 
 * [NodeJS](http://nodejs.org/)/NPM,
-* [Grunt](http://gruntjs.com/)
-* [Sass](http://sass-lang.com/) and [Compass](http://compass-style.org/)
 
 Clone this repo and install the dependencies:
 
@@ -27,7 +25,7 @@ npm install
 To run the app:
 
 ````
-grunt serve
+npm start
 ````
 
 You can now access Mantra from http://localhost:9009.
@@ -37,13 +35,7 @@ You can now access Mantra from http://localhost:9009.
 You can build the project with:
 
 ````
-grunt build
-````
-
-And test the optimized build locally with:
-
-````
-grunt serve:dist
+npm run build
 ````
 
 ## License
