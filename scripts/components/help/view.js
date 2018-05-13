@@ -1,50 +1,43 @@
-define([
-  'underscore',
-  'lateralus',
+import _ from 'underscore';
+import Lateralus from 'lateralus';
+import template from 'text!./template.mustache';
+import ModalComponent from 'aenima/components/modal/main';
+import aenimaUtils from 'aenima/utils';
 
-  'text!./template.mustache',
+var Base = ModalComponent.View;
+var baseProto = Base.prototype;
 
-  'aenima/components/modal/main',
+var HelpComponentView = Base.extend({
+  template: template,
 
-  'aenima/utils',
-], function(_, Lateralus, template, ModalComponent, aenimaUtils) {
-  'use strict';
-
-  var Base = ModalComponent.View;
-  var baseProto = Base.prototype;
-
-  var HelpComponentView = Base.extend({
-    template: template,
-
-    lateralusEvents: _.extend(
-      {
-        userRequestToggleHelpModal: function() {
-          this.hidableView.toggle();
-        },
-
-        requestQuickCloseHelp: function() {
-          this.hidableView.quickHide();
-        },
+  lateralusEvents: _.extend(
+    {
+      userRequestToggleHelpModal: function() {
+        this.hidableView.toggle();
       },
-      baseProto.lateralusEvents
-    ),
 
-    /**
-     * @param {Object} [options] See http://backbonejs.org/#View-constructor
-     */
-    initialize: function() {
-      baseProto.initialize.apply(this, arguments);
+      requestQuickCloseHelp: function() {
+        this.hidableView.quickHide();
+      },
     },
+    baseProto.lateralusEvents
+  ),
 
-    /**
-     * @override
-     */
-    getTemplateRenderData: function() {
-      return _.extend(baseProto.getTemplateRenderData.apply(this, arguments), {
-        metaKey: aenimaUtils.isMac() ? '⌘' : 'Ctrl',
-      });
-    },
-  });
+  /**
+   * @param {Object} [options] See http://backbonejs.org/#View-constructor
+   */
+  initialize: function() {
+    baseProto.initialize.apply(this, arguments);
+  },
 
-  return HelpComponentView;
+  /**
+   * @override
+   */
+  getTemplateRenderData: function() {
+    return _.extend(baseProto.getTemplateRenderData.apply(this, arguments), {
+      metaKey: aenimaUtils.isMac() ? '⌘' : 'Ctrl',
+    });
+  },
 });
+
+export default HelpComponentView;

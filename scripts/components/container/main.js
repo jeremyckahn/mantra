@@ -1,70 +1,54 @@
-define([
-  'lateralus',
+import Lateralus from 'lateralus';
+import Model from './model';
+import View from './view';
+import template from 'text!./template.mustache';
+import KeybindingsComponent from '../keybindings/main';
+import PreviewComponent from '../preview/main';
+import ControlPanel from '../control-panel/main';
+import StylieComponent from '../stylie/main';
+import HelpComponent from '../help/main';
 
-  './model',
-  './view',
-  'text!./template.mustache',
+var Base = Lateralus.Component;
 
-  '../keybindings/main',
-  '../preview/main',
-  '../control-panel/main',
-  '../stylie/main',
-  '../help/main',
-], function(
-  Lateralus,
-  Model,
-  View,
-  template,
-  KeybindingsComponent,
-  PreviewComponent,
-  ControlPanel,
-  StylieComponent,
-  HelpComponent
-) {
-  'use strict';
+var ContainerComponent = Base.extend({
+  name: 'container',
+  Model: Model,
+  View: View,
+  template: template,
 
-  var Base = Lateralus.Component;
-
-  var ContainerComponent = Base.extend({
-    name: 'container',
-    Model: Model,
-    View: View,
-    template: template,
-
-    lateralusEvents: {
-      pauseKeybindings: function() {
-        this.keybindingsComponent.dispose();
-      },
-
-      resumeKeybindings: function() {
-        this.initKeybindings();
-      },
+  lateralusEvents: {
+    pauseKeybindings: function() {
+      this.keybindingsComponent.dispose();
     },
 
-    initialize: function() {
+    resumeKeybindings: function() {
       this.initKeybindings();
-
-      this.addComponent(PreviewComponent, {
-        el: this.view.$preview[0],
-      });
-
-      this.addComponent(ControlPanel, {
-        el: this.view.$controlPanel[0],
-      });
-
-      this.addComponent(HelpComponent, {
-        el: this.view.$help[0],
-      });
-
-      this.addComponent(StylieComponent, {
-        el: this.view.$stylie[0],
-      });
     },
+  },
 
-    initKeybindings: function() {
-      this.keybindingsComponent = this.addComponent(KeybindingsComponent);
-    },
-  });
+  initialize: function() {
+    this.initKeybindings();
 
-  return ContainerComponent;
+    this.addComponent(PreviewComponent, {
+      el: this.view.$preview[0],
+    });
+
+    this.addComponent(ControlPanel, {
+      el: this.view.$controlPanel[0],
+    });
+
+    this.addComponent(HelpComponent, {
+      el: this.view.$help[0],
+    });
+
+    this.addComponent(StylieComponent, {
+      el: this.view.$stylie[0],
+    });
+  },
+
+  initKeybindings: function() {
+    this.keybindingsComponent = this.addComponent(KeybindingsComponent);
+  },
 });
+
+export default ContainerComponent;

@@ -1,18 +1,13 @@
-define([
-  'aenima/components/management-panel/main',
+import AEnimaManagementPanel from 'aenima/components/management-panel/main';
+import View from './view';
+import template from 'text!./template.mustache';
 
-  './view',
-  'text!./template.mustache',
-], function(AEnimaManagementPanel, View, template) {
-  'use strict';
+var Base = AEnimaManagementPanel;
 
-  var Base = AEnimaManagementPanel;
-
-  var ManagementPanelComponent = Base.extend({
-    name: 'management-panel',
-    View: View,
-    template: template,
-  });
-
-  return ManagementPanelComponent;
+var ManagementPanelComponent = Base.extend({
+  name: 'management-panel',
+  View: View,
+  template: template,
 });
+
+export default ManagementPanelComponent;

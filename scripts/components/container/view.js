@@ -1,85 +1,77 @@
-define([
-  'underscore',
-  'lateralus',
+import _ from 'underscore';
+import Lateralus from 'lateralus';
+import template from 'text!./template.mustache';
+import constant from '../../constant';
+import 'rekapi-timeline';
 
-  'text!./template.mustache',
+var Base = Lateralus.Component.View;
+var baseProto = Base.prototype;
 
-  '../../constant',
+var ContainerComponentView = Base.extend({
+  template: template,
 
-  // Silent import
-  'rekapi-timeline',
-], function(_, Lateralus, template, constant) {
-  'use strict';
+  className: 'aenima',
 
-  var Base = Lateralus.Component.View;
-  var baseProto = Base.prototype;
-
-  var ContainerComponentView = Base.extend({
-    template: template,
-
-    className: 'aenima',
-
-    provide: {
-      /**
-       * @return {RekapiTimeline}
-       */
-      rekapiTimeline: function() {
-        return this.timeline;
-      },
-    },
-
+  provide: {
     /**
-     * @param {Object} [options] See http://backbonejs.org/#View-constructor
+     * @return {RekapiTimeline}
      */
-    initialize: function() {
-      baseProto.initialize.apply(this, arguments);
-      this.$el.addClass('loading');
+    rekapiTimeline: function() {
+      return this.timeline;
     },
+  },
 
-    deferredInitialize: function() {
-      this.timeline = this.lateralus.rekapi.createTimeline(this.$timeline[0], {
-        supportedProperties: constant.SUPPORTED_PROPERTIES,
-        preventValueInputAutoSelect: true,
-      });
+  /**
+   * @param {Object} [options] See http://backbonejs.org/#View-constructor
+   */
+  initialize: function() {
+    baseProto.initialize.apply(this, arguments);
+    this.$el.addClass('loading');
+  },
 
-      // Bridge some events across Lateralus apps
-      [
-        'rekapi:timelineModified',
-        'keyframePropertyDragStart',
-        'beforeUserUpdatesKeyframeValueInput',
-        'beforeUserUpdatesKeyframeMillisecondInput',
-        'beforeUserUpdatesKeyframeCurveSelector',
-        'change:timelineDuration',
-        'beginTemporaryTimelineModifications',
-        'endTemporaryTimelineModifications',
-      ].forEach(
-        function(event) {
-          this.amplify(this.timeline, event);
-        }.bind(this)
-      );
+  deferredInitialize: function() {
+    this.timeline = this.lateralus.rekapi.createTimeline(this.$timeline[0], {
+      supportedProperties: constant.SUPPORTED_PROPERTIES,
+      preventValueInputAutoSelect: true,
+    });
 
-      [
-        'tweenableCurveCreated',
-        'activateKeyframePropertyByNameAndMillisecond',
-        'requestDeselectAllKeyframes',
-        'requestResizeScrubberGuide',
-      ].forEach(
-        function(event) {
-          this.timeline.amplify(this.lateralus, event);
-        }.bind(this)
-      );
+    // Bridge some events across Lateralus apps
+    [
+      'rekapi:timelineModified',
+      'keyframePropertyDragStart',
+      'beforeUserUpdatesKeyframeValueInput',
+      'beforeUserUpdatesKeyframeMillisecondInput',
+      'beforeUserUpdatesKeyframeCurveSelector',
+      'change:timelineDuration',
+      'beginTemporaryTimelineModifications',
+      'endTemporaryTimelineModifications',
+    ].forEach(
+      function(event) {
+        this.amplify(this.timeline, event);
+      }.bind(this)
+    );
 
-      ['currentActorModel', 'activeKeyframeProperties'].forEach(
-        function(provider) {
-          this.timeline.shareWith(this.lateralus, provider);
-        }.bind(this)
-      );
+    [
+      'tweenableCurveCreated',
+      'activateKeyframePropertyByNameAndMillisecond',
+      'requestDeselectAllKeyframes',
+      'requestResizeScrubberGuide',
+    ].forEach(
+      function(event) {
+        this.timeline.amplify(this.lateralus, event);
+      }.bind(this)
+    );
 
-      this.lateralus.rekapi.addActor();
-      this.$el.removeClass('loading');
-      this.emit('rekapiTimelineInitialized');
-    },
-  });
+    ['currentActorModel', 'activeKeyframeProperties'].forEach(
+      function(provider) {
+        this.timeline.shareWith(this.lateralus, provider);
+      }.bind(this)
+    );
 
-  return ContainerComponentView;
+    this.lateralus.rekapi.addActor();
+    this.$el.removeClass('loading');
+    this.emit('rekapiTimelineInitialized');
+  },
 });
+
+export default ContainerComponentView;

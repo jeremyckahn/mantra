@@ -1,41 +1,36 @@
-define([
-  'underscore',
-  'lateralus',
-  'keydrown',
+import _ from 'underscore';
+import Lateralus from 'lateralus';
+import kd from 'keydrown';
+import AEnimaKeybindings from 'aenima/components/keybindings/main';
 
-  'aenima/components/keybindings/main',
-], function(_, Lateralus, kd, AEnimaKeybindings) {
-  'use strict';
+var Base = AEnimaKeybindings;
 
-  var Base = AEnimaKeybindings;
+var KeybindingsComponent = Base.extend({
+  name: 'keybindings',
 
-  var KeybindingsComponent = Base.extend({
-    name: 'keybindings',
+  /**
+   * @override
+   */
+  keyPressEventMap: {
+    SPACE: 'userRequestTogglePreviewPlayback',
+    H: 'userRequestToggleHelpModal',
+    T: 'requestOpenStylie',
+    ESC: 'userRequestCloseModal',
+  },
 
-    /**
-     * @override
-     */
-    keyPressEventMap: {
-      SPACE: 'userRequestTogglePreviewPlayback',
-      H: 'userRequestToggleHelpModal',
-      T: 'requestOpenStylie',
-      ESC: 'userRequestCloseModal',
-    },
+  /**
+   * @override
+   */
+  metaKeyPressEventMap: {
+    Z: 'userRequestUndo',
+  },
 
-    /**
-     * @override
-     */
-    metaKeyPressEventMap: {
-      Z: 'userRequestUndo',
-    },
-
-    /**
-     * @override
-     */
-    keyUpEventMap: {
-      O: 'userRequestUpdateOnionSkinSettingViaKeybinding',
-    },
-  });
-
-  return KeybindingsComponent;
+  /**
+   * @override
+   */
+  keyUpEventMap: {
+    O: 'userRequestUpdateOnionSkinSettingViaKeybinding',
+  },
 });
+
+export default KeybindingsComponent;

@@ -1,42 +1,36 @@
-define([
-  'aenima/components/management-panel/main',
+import AEnimaManagementPanel from 'aenima/components/management-panel/main';
+import _ from 'underscore';
+import Mustache from 'mustache';
+import template from 'text!./template.mustache';
 
-  'underscore',
-  'mustache',
+var Base = AEnimaManagementPanel.View;
+var baseProto = Base.prototype;
 
-  'text!./template.mustache',
-], function(AEnimaManagementPanel, _, Mustache, template) {
-  'use strict';
+var ManagementPanelComponentView = Base.extend({
+  template: Mustache.render(
+    template,
+    {},
+    {
+      base: AEnimaManagementPanel.template,
+    }
+  ),
 
-  var Base = AEnimaManagementPanel.View;
-  var baseProto = Base.prototype;
-
-  var ManagementPanelComponentView = Base.extend({
-    template: Mustache.render(
-      template,
-      {},
-      {
-        base: AEnimaManagementPanel.template,
-      }
-    ),
-
-    events: _.extend(
-      {
-        'click .reset': function() {
-          this.emit('requestRecordUndoState');
-          this.emit('resetTimeline');
-        },
+  events: _.extend(
+    {
+      'click .reset': function() {
+        this.emit('requestRecordUndoState');
+        this.emit('resetTimeline');
       },
-      baseProto.events
-    ),
-
-    /**
-     * @param {Object} [options] See http://backbonejs.org/#View-constructor
-     */
-    initialize: function() {
-      baseProto.initialize.apply(this, arguments);
     },
-  });
+    baseProto.events
+  ),
 
-  return ManagementPanelComponentView;
+  /**
+   * @param {Object} [options] See http://backbonejs.org/#View-constructor
+   */
+  initialize: function() {
+    baseProto.initialize.apply(this, arguments);
+  },
 });
+
+export default ManagementPanelComponentView;

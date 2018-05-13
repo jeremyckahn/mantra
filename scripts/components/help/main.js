@@ -1,18 +1,13 @@
-define([
-  'aenima/components/modal/main',
+import ModalComponent from 'aenima/components/modal/main';
+import View from './view';
+import template from 'text!./template.mustache';
 
-  './view',
-  'text!./template.mustache',
-], function(ModalComponent, View, template) {
-  'use strict';
+var Base = ModalComponent;
 
-  var Base = ModalComponent;
-
-  var HelpComponent = Base.extend({
-    name: 'help',
-    View: View,
-    template: template,
-  });
-
-  return HelpComponent;
+var HelpComponent = Base.extend({
+  name: 'help',
+  View: View,
+  template: template,
 });
+
+export default HelpComponent;

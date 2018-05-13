@@ -1,19 +1,17 @@
-define(['lateralus'], function(Lateralus) {
-  'use strict';
+import Lateralus from 'lateralus';
 
-  var Base = Lateralus.Component.Model;
-  var baseProto = Base.prototype;
+var Base = Lateralus.Component.Model;
+var baseProto = Base.prototype;
 
-  var ContainerComponentModel = Base.extend({
-    /**
-     * Parameters are the same as http://backbonejs.org/#Model-constructor
-     * @param {Object} [attributes]
-     * @param {Object} [options]
-     */
-    initialize: function() {
-      baseProto.initialize.apply(this, arguments);
-    },
-  });
-
-  return ContainerComponentModel;
+var ContainerComponentModel = Base.extend({
+  /**
+   * Parameters are the same as http://backbonejs.org/#Model-constructor
+   * @param {Object} [attributes]
+   * @param {Object} [options]
+   */
+  initialize: function() {
+    baseProto.initialize.apply(this, arguments);
+  },
 });
+
+export default ContainerComponentModel;

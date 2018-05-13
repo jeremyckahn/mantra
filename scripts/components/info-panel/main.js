@@ -1,19 +1,15 @@
-define(['lateralus', './model', './view', 'text!./template.mustache'], function(
-  Lateralus,
-  Model,
-  View,
-  template
-) {
-  'use strict';
+import Lateralus from 'lateralus';
+import Model from './model';
+import View from './view';
+import template from 'text!./template.mustache';
 
-  var Base = Lateralus.Component;
+var Base = Lateralus.Component;
 
-  var InfoPanelComponent = Base.extend({
-    name: 'info-panel',
-    Model: Model,
-    View: View,
-    template: template,
-  });
-
-  return InfoPanelComponent;
+var InfoPanelComponent = Base.extend({
+  name: 'info-panel',
+  Model: Model,
+  View: View,
+  template: template,
 });
+
+export default InfoPanelComponent;

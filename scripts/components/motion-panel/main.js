@@ -1,22 +1,16 @@
-define([
-  'lateralus',
+import Lateralus from 'lateralus';
+import AEnimaMotionPanel from 'aenima/components/motion-panel/main';
+import Model from './model';
+import View from './view';
+import template from 'text!./template.mustache';
 
-  'aenima/components/motion-panel/main',
+var Base = AEnimaMotionPanel;
 
-  './model',
-  './view',
-  'text!./template.mustache',
-], function(Lateralus, AEnimaMotionPanel, Model, View, template) {
-  'use strict';
-
-  var Base = AEnimaMotionPanel;
-
-  var MotionPanelComponent = Base.extend({
-    name: 'motion-panel',
-    Model: AEnimaMotionPanel.Model,
-    View: View,
-    template: template,
-  });
-
-  return MotionPanelComponent;
+var MotionPanelComponent = Base.extend({
+  name: 'motion-panel',
+  Model: AEnimaMotionPanel.Model,
+  View: View,
+  template: template,
 });
+
+export default MotionPanelComponent;
