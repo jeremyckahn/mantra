@@ -36,6 +36,7 @@
     "jshint": "^2.9.4",
     "node-sass": "^4.5.3",
     "nodemon": "^1.9.2",
+    "prettier": "^1.12.1",
     "raw-loader": "^0.5.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
@@ -48,6 +49,7 @@
     "lint": "jshint --config=.jshintrc scripts/**.js",
     "deploy": "npm run build && gh-pages -d dist -b gh-pages",
     "preversion": "npm run lint",
+    "prettier": "prettier --single-quote --trailing-comma es5 'scripts/**/*.js' --write",
     "postversion": "git push && git push --tags && npm run deploy && npm publish --access=public"
   },
   "engines": {
