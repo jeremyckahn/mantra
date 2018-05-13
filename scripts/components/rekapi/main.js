@@ -161,7 +161,11 @@ const RekapiComponent = Base.extend({
 
     let activeProperties = [];
     if (activeKeyframeProperties.length) {
-      activeProperties = _.map(activeKeyframeProperties, activeKeyframeProperty => activeKeyframeProperty.model.pick('name', 'millisecond'));
+      activeProperties = _.map(
+        activeKeyframeProperties,
+        activeKeyframeProperty =>
+          activeKeyframeProperty.model.pick('name', 'millisecond')
+      );
     }
 
     _.extend(timeline, { activeProperties });

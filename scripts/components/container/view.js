@@ -45,28 +45,22 @@ const ContainerComponentView = Base.extend({
       'change:timelineDuration',
       'beginTemporaryTimelineModifications',
       'endTemporaryTimelineModifications',
-    ].forEach(
-      event => {
-        this.amplify(this.timeline, event);
-      }
-    );
+    ].forEach(event => {
+      this.amplify(this.timeline, event);
+    });
 
     [
       'tweenableCurveCreated',
       'activateKeyframePropertyByNameAndMillisecond',
       'requestDeselectAllKeyframes',
       'requestResizeScrubberGuide',
-    ].forEach(
-      event => {
-        this.timeline.amplify(this.lateralus, event);
-      }
-    );
+    ].forEach(event => {
+      this.timeline.amplify(this.lateralus, event);
+    });
 
-    ['currentActorModel', 'activeKeyframeProperties'].forEach(
-      provider => {
-        this.timeline.shareWith(this.lateralus, provider);
-      }
-    );
+    ['currentActorModel', 'activeKeyframeProperties'].forEach(provider => {
+      this.timeline.shareWith(this.lateralus, provider);
+    });
 
     this.lateralus.rekapi.addActor();
     this.$el.removeClass('loading');

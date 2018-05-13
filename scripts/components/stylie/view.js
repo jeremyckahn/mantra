@@ -29,15 +29,11 @@ const StylieComponentView = Base.extend({
 
       // This has to be _.deferred so as to overwrite the custom curves set
       // by Stylie's deferredInitialize method
-      _.defer(
-        () => {
-          customCurves.forEach(
-            customCurve => {
-              this.stylie.trigger('setCustomCurve', customCurve);
-            }
-          );
-        }
-      );
+      _.defer(() => {
+        customCurves.forEach(customCurve => {
+          this.stylie.trigger('setCustomCurve', customCurve);
+        });
+      });
 
       $body.on('keydown', this.escapeHandler);
       this.hidableView.quickFadeIn();
@@ -62,22 +58,18 @@ const StylieComponentView = Base.extend({
       this.emit('unquarantineCustomCurves');
 
       // Backfill any custom curves from Stylie into Manta
-      customCurves.forEach(
-        customCurve => {
-          this.emit('setCustomCurve', customCurve);
-        }
-      );
+      customCurves.forEach(customCurve => {
+        this.emit('setCustomCurve', customCurve);
+      });
 
-      this.hidableView.quickHide(
-        () => {
-          this.stylie.dispose();
-          this.emit('resumeKeybindings');
+      this.hidableView.quickHide(() => {
+        this.stylie.dispose();
+        this.emit('resumeKeybindings');
 
-          if (this.wasPlaying) {
-            this.emit('requestPlay');
-          }
+        if (this.wasPlaying) {
+          this.emit('requestPlay');
         }
-      );
+      });
     },
   },
 
