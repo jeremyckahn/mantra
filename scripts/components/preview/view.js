@@ -1,22 +1,11 @@
 define([
+  'lateralus',
+  'rekapi',
 
-  'lateralus'
-  ,'rekapi'
+  'text!./template.mustache',
 
-  ,'text!./template.mustache'
-
-  ,'../../constant'
-
-], function (
-
-  Lateralus
-  ,rekapi
-
-  ,template
-
-  ,constant
-
-) {
+  '../../constant',
+], function(Lateralus, rekapi, template, constant) {
   'use strict';
 
   var Base = Lateralus.Component.View;
@@ -24,54 +13,58 @@ define([
   var onionSkinRekapi = new rekapi.Rekapi(document.createElement('div'));
 
   var PreviewComponentView = Base.extend({
-    template: template
+    template: template,
 
-    ,lateralusEvents: {
+    lateralusEvents: {
       /**
        * @param {number} timelineDuration
        */
-      'change:timelineDuration': function (timelineDuration) {
+      'change:timelineDuration': function(timelineDuration) {
         if (this.lateralus.model.getUi('showOnionSkin')) {
           this.updateOnionSkinResolutionForTimelineDuration(timelineDuration);
         }
-      }
+      },
 
-      ,'rekapi:timelineModified': function () {
+      'rekapi:timelineModified': function() {
         var lateralus = this.lateralus;
 
-        if (lateralus.hasInitialized &&
-            lateralus.model.getUi('showOnionSkin')) {
+        if (
+          lateralus.hasInitialized &&
+          lateralus.model.getUi('showOnionSkin')
+        ) {
           this.updateOnionSkinSegmentPositions();
         }
-      }
+      },
 
-      ,rekapiTimelineInitialized: function () {
+      rekapiTimelineInitialized: function() {
         if (this.lateralus.model.getUi('showOnionSkin')) {
           this.updateOnionSkinSegmentPositions();
         }
-      }
+      },
 
-      ,userRequestUpdateOnionSkinSetting: function () {
+      userRequestUpdateOnionSkinSetting: function() {
         var showOnionSkin = this.lateralus.model.getUi('showOnionSkin');
         if (showOnionSkin) {
           this.updateOnionSkinResolutionForTimelineDuration(
-            this.lateralus.rekapi.getAnimationLength());
+            this.lateralus.rekapi.getAnimationLength()
+          );
           this.updateOnionSkinSegmentPositions();
         }
 
-        this.$onionSkin
-          [showOnionSkin ? 'removeClass' : 'addClass']('transparent');
-      }
+        this.$onionSkin[showOnionSkin ? 'removeClass' : 'addClass'](
+          'transparent'
+        );
+      },
 
-      ,requestResetRenderedActorState: function () {
+      requestResetRenderedActorState: function() {
         this.$actor.removeAttr('style');
-      }
-    }
+      },
+    },
 
     /**
      * @param {Object} [options] See http://backbonejs.org/#View-constructor
      */
-    ,initialize: function () {
+    initialize: function() {
       baseProto.initialize.apply(this, arguments);
       this.$actorBaseClone = this.$actor.clone();
       this.$actorBaseClone.removeClass('$actor');
@@ -79,19 +72,20 @@ define([
       if (!this.lateralus.model.getUi('showOnionSkin')) {
         this.$onionSkin.addClass('transparent');
       }
-    }
+    },
 
     /**
      * @param {number} duration
      */
-    ,updateOnionSkinResolutionForTimelineDuration: function (duration) {
+    updateOnionSkinResolutionForTimelineDuration: function(duration) {
       if (duration > constant.ONION_SKIN_DURATION_LIMIT) {
         return;
       }
 
       this.$onionSkin.empty();
-      var numSegments =
-        Math.ceil((duration / 1000) * constant.ONION_SKIN_SEGMENTS_PER_SECOND);
+      var numSegments = Math.ceil(
+        duration / 1000 * constant.ONION_SKIN_SEGMENTS_PER_SECOND
+      );
 
       var i = 0;
       var actorClones = [];
@@ -100,24 +94,25 @@ define([
       }
 
       this.$onionSkin.append(actorClones);
-    }
+    },
 
-    ,updateOnionSkinSegmentPositions: function () {
+    updateOnionSkinSegmentPositions: function() {
       var rekapi = this.lateralus.rekapi;
       onionSkinRekapi.removeAllActors();
       onionSkinRekapi.importTimeline(rekapi.exportTimeline());
-      var rekapiCloneActor =
-        onionSkinRekapi.getActor(onionSkinRekapi.getActorIds()[0]);
+      var rekapiCloneActor = onionSkinRekapi.getActor(
+        onionSkinRekapi.getActorIds()[0]
+      );
       var animationLength = rekapi.getAnimationLength();
       var $onionSkinChildren = this.$onionSkin.children();
       var numSegments = $onionSkinChildren.length;
 
-      $onionSkinChildren.each(function (i, el) {
+      $onionSkinChildren.each(function(i, el) {
         var millisecond = i / (numSegments - 1) * animationLength;
         rekapiCloneActor.context = el;
         onionSkinRekapi.update(millisecond);
       });
-    }
+    },
   });
 
   return PreviewComponentView;

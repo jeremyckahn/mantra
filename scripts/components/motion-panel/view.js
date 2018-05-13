@@ -1,24 +1,12 @@
 define([
+  'underscore',
+  'mustache',
+  'lateralus',
 
-  'underscore'
-  ,'mustache'
-  ,'lateralus'
+  'aenima/components/motion-panel/main',
 
-  ,'aenima/components/motion-panel/main'
-
-  ,'text!./template.mustache'
-
-], function (
-
-  _
-  ,Mustache
-  ,Lateralus
-
-  ,AEnimaMotionPanel
-
-  ,template
-
-) {
+  'text!./template.mustache',
+], function(_, Mustache, Lateralus, AEnimaMotionPanel, template) {
   'use strict';
 
   var Base = AEnimaMotionPanel.View;
@@ -26,21 +14,24 @@ define([
 
   var MotionPanelComponentView = Base.extend({
     template: Mustache.render(template, {
-      base: AEnimaMotionPanel.template
-    })
+      base: AEnimaMotionPanel.template,
+    }),
 
-    ,events: _.extend({
-      'click .launch-stylie': function () {
-        this.emit('requestOpenStylie');
-      }
-    }, baseProto.events)
+    events: _.extend(
+      {
+        'click .launch-stylie': function() {
+          this.emit('requestOpenStylie');
+        },
+      },
+      baseProto.events
+    ),
 
     /**
      * @param {Object} [options] See http://backbonejs.org/#View-constructor
      */
-    ,initialize: function () {
+    initialize: function() {
       baseProto.initialize.apply(this, arguments);
-    }
+    },
   });
 
   return MotionPanelComponentView;

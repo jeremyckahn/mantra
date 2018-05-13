@@ -1,45 +1,41 @@
 define([
+  'aenima/components/management-panel/main',
 
-  'aenima/components/management-panel/main'
+  'underscore',
+  'mustache',
 
-  ,'underscore'
-  ,'mustache'
-
-  ,'text!./template.mustache'
-
-], function (
-
-  AEnimaManagementPanel
-
-  ,_
-  ,Mustache
-
-  ,template
-
-) {
+  'text!./template.mustache',
+], function(AEnimaManagementPanel, _, Mustache, template) {
   'use strict';
 
   var Base = AEnimaManagementPanel.View;
   var baseProto = Base.prototype;
 
   var ManagementPanelComponentView = Base.extend({
-    template: Mustache.render(template, {}, {
-      base: AEnimaManagementPanel.template
-    })
-
-    ,events: _.extend({
-      'click .reset': function () {
-        this.emit('requestRecordUndoState');
-        this.emit('resetTimeline');
+    template: Mustache.render(
+      template,
+      {},
+      {
+        base: AEnimaManagementPanel.template,
       }
-    }, baseProto.events)
+    ),
+
+    events: _.extend(
+      {
+        'click .reset': function() {
+          this.emit('requestRecordUndoState');
+          this.emit('resetTimeline');
+        },
+      },
+      baseProto.events
+    ),
 
     /**
      * @param {Object} [options] See http://backbonejs.org/#View-constructor
      */
-    ,initialize: function () {
+    initialize: function() {
       baseProto.initialize.apply(this, arguments);
-    }
+    },
   });
 
   return ManagementPanelComponentView;

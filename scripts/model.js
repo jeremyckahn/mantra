@@ -1,17 +1,7 @@
-define([
-
-  'underscore'
-  ,'lateralus'
-
-  ,'aenima/models/persisted-model'
-
-], function (
-
-  _
-  ,Lateralus
-
-  ,PersistedModel
-
+define(['underscore', 'lateralus', 'aenima/models/persisted-model'], function(
+  _,
+  Lateralus,
+  PersistedModel
 ) {
   'use strict';
 
@@ -19,32 +9,32 @@ define([
   var baseProto = Base.prototype;
 
   var MantraModel = Base.extend({
-    localStorageId: 'mantraData'
+    localStorageId: 'mantraData',
 
-    ,defaults: {
-      savedTimelines: {}
+    defaults: {
+      savedTimelines: {},
 
       // TODO: Move doPreventUndoRecording and isLoadingTimeline to the .set in
       // initialize?
-      ,doPreventUndoRecording: false
-      ,isLoadingTimeline: false
-      ,ui: {
-        exportOrientation: 'first-keyframe'
-        ,showPath: true
-        ,centerToPath: true
-        ,showOnionSkin: false
-        ,cssSize: 30
-        ,selectedVendors: ['w3']
-      }
-    }
+      doPreventUndoRecording: false,
+      isLoadingTimeline: false,
+      ui: {
+        exportOrientation: 'first-keyframe',
+        showPath: true,
+        centerToPath: true,
+        showOnionSkin: false,
+        cssSize: 30,
+        selectedVendors: ['w3'],
+      },
+    },
 
-    ,initialize: function () {
+    initialize: function() {
       baseProto.initialize.apply(this, arguments);
 
       this.set({
-        env: window.env || {}
+        env: window.env || {},
       });
-    }
+    },
   });
 
   return MantraModel;

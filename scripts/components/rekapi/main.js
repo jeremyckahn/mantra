@@ -1,70 +1,64 @@
 define([
+  'jquery',
+  'underscore',
+  'lateralus',
+  'rekapi',
 
-  'jquery'
-  ,'underscore'
-  ,'lateralus'
-  ,'rekapi'
-
-  ,'aenima/components/rekapi/main'
-
-], function (
-
-  $
-  ,_
-  ,Lateralus
-  ,Rekapi
-
-  ,AEnimaRekapiComponent
-
-) {
+  'aenima/components/rekapi/main',
+], function($, _, Lateralus, Rekapi, AEnimaRekapiComponent) {
   'use strict';
 
   var Base = AEnimaRekapiComponent;
   var baseProto = Base.prototype;
 
   var RekapiComponent = Base.extend({
-    name: 'rekapi'
+    name: 'rekapi',
 
-    ,provide: _.defaults({
-      /**
-       * @return {Object}
-       */
-      timelineExport: function () {
-        return this.applyOrientationToExport(
-          baseProto.provide.timelineExport.bind(this));
-      }
+    provide: _.defaults(
+      {
+        /**
+         * @return {Object}
+         */
+        timelineExport: function() {
+          return this.applyOrientationToExport(
+            baseProto.provide.timelineExport.bind(this)
+          );
+        },
 
-      /**
-       * @param {Object} cssOpts Gets passed to Rekapi.DOMRenderer#toString.
-       * @return {string}
-       */
-      ,cssAnimationString: function (cssOpts) {
-        return this.applyOrientationToExport(
-          baseProto.provide.cssAnimationString.bind(this, cssOpts));
-      }
-    }, baseProto.provide)
+        /**
+         * @param {Object} cssOpts Gets passed to Rekapi.DOMRenderer#toString.
+         * @return {string}
+         */
+        cssAnimationString: function(cssOpts) {
+          return this.applyOrientationToExport(
+            baseProto.provide.cssAnimationString.bind(this, cssOpts)
+          );
+        },
+      },
+      baseProto.provide
+    ),
 
-    ,lateralusEvents: {
-      requestClearTimeline: function () {
+    lateralusEvents: {
+      requestClearTimeline: function() {
         this.removeAllActors();
-      }
+      },
 
       /**
        * @param {KeyboardEvent} evt
        */
-      ,userRequestUndo: function (evt) {
+      userRequestUndo: function(evt) {
         // Prevent focusing of the previously-modified input element
         evt.preventDefault();
 
         this.revertToPreviouslyRecordedUndoState();
-      }
-    }
+      },
+    },
 
     /**
      * @param {Function} exportProcessor
      * @return {*}
      */
-    ,applyOrientationToExport: function (exportProcessor) {
+    applyOrientationToExport: function(exportProcessor) {
       var currentActorModel = this.collectOne('currentActorModel');
 
       if (!currentActorModel) {
@@ -79,27 +73,29 @@ define([
 
       if (needToAccountForOffset) {
         // Apply offset
-        ['translateX', 'translateY'].forEach(function (offsetPropertyName) {
-          var offsetProperties =
-            keyframePropertyCollection.where({ name: offsetPropertyName });
+        ['translateX', 'translateY'].forEach(function(offsetPropertyName) {
+          var offsetProperties = keyframePropertyCollection.where({
+            name: offsetPropertyName,
+          });
 
           if (!offsetProperties.length) {
             return;
           }
 
           var firstPropertyModel = _(offsetProperties)
-            .sortBy(function (property) {
+            .sortBy(function(property) {
               return property.get('millisecond');
             })
             .first();
 
-          keyframeOffsets[offsetPropertyName] =
-            parseInt(firstPropertyModel.get('value'));
+          keyframeOffsets[offsetPropertyName] = parseInt(
+            firstPropertyModel.get('value')
+          );
           var offset = keyframeOffsets[offsetPropertyName];
 
-          offsetProperties.forEach(function (property) {
+          offsetProperties.forEach(function(property) {
             property.attributes.value =
-              (parseInt(property.attributes.value, 10) - offset) + 'px';
+              parseInt(property.attributes.value, 10) - offset + 'px';
           });
         });
       }
@@ -108,47 +104,48 @@ define([
 
       // Reverse the offsetting logic from above
       if (needToAccountForOffset) {
-        ['translateX', 'translateY'].forEach(function (offsetPropertyName) {
+        ['translateX', 'translateY'].forEach(function(offsetPropertyName) {
           if (typeof keyframeOffsets[offsetPropertyName] === 'undefined') {
             return;
           }
 
-          var offsetProperties =
-            keyframePropertyCollection.where({ name: offsetPropertyName });
+          var offsetProperties = keyframePropertyCollection.where({
+            name: offsetPropertyName,
+          });
           var offset = keyframeOffsets[offsetPropertyName];
 
-          offsetProperties.forEach(function (property) {
+          offsetProperties.forEach(function(property) {
             property.attributes.value =
-              (parseInt(property.attributes.value, 10) + offset) + 'px';
+              parseInt(property.attributes.value, 10) + offset + 'px';
           });
         });
       }
 
       return exportedAnimation;
-    }
+    },
 
     /**
      * @return {Object}
      * @override
      */
-    ,toJSON: function () {
+    toJSON: function() {
       var exportData = this.exportTimeline();
 
       return exportData;
-    }
+    },
 
     /**
      * @param {Object} animationData
      * @override
      */
-    ,fromJSON: function (animationData) {
+    fromJSON: function(animationData) {
       this.rekapi.importTimeline(animationData);
-    }
+    },
 
     /**
      * @override
      */
-    ,update: function () {
+    update: function() {
       // If no arguments were provided, this is a re-render and all retained
       // styles should be removed
       if (arguments.length === 0) {
@@ -157,12 +154,12 @@ define([
 
       const { rekapi } = this;
       rekapi.update.apply(rekapi, arguments);
-    }
+    },
 
     /**
      * @override
      */
-    ,exportTimeline: function () {
+    exportTimeline: function() {
       const { rekapi } = this;
       var timeline = rekapi.exportTimeline.apply(rekapi, arguments);
 
@@ -170,8 +167,9 @@ define([
 
       var activeProperties = [];
       if (activeKeyframeProperties.length) {
-        activeProperties = _.map(activeKeyframeProperties,
-            function (activeKeyframeProperty) {
+        activeProperties = _.map(activeKeyframeProperties, function(
+          activeKeyframeProperty
+        ) {
           return activeKeyframeProperty.model.pick('name', 'millisecond');
         });
       }
@@ -179,12 +177,12 @@ define([
       _.extend(timeline, { activeProperties: activeProperties });
 
       return timeline;
-    }
+    },
 
     /**
      * @override
      */
-    ,revertToPreviouslyRecordedUndoState: function () {
+    revertToPreviouslyRecordedUndoState: function() {
       if (!this.undoStateStack.length) {
         return;
       }
@@ -192,22 +190,22 @@ define([
       var lastUndoState = JSON.parse(_.last(this.undoStateStack));
       baseProto.revertToPreviouslyRecordedUndoState.apply(this, arguments);
 
-      lastUndoState.activeProperties.forEach(function (activeProperty) {
+      lastUndoState.activeProperties.forEach(function(activeProperty) {
         this.emit(
-          'activateKeyframePropertyByNameAndMillisecond'
-          ,activeProperty
+          'activateKeyframePropertyByNameAndMillisecond',
+          activeProperty
         );
       }, this);
 
       this.emit('requestResizeScrubberGuide');
-    }
+    },
 
     /**
      * @override
      */
-    ,removeCurrentTimeline: function () {
+    removeCurrentTimeline: function() {
       this.removeAllActors();
-    }
+    },
   });
 
   return RekapiComponent;

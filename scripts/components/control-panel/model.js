@@ -1,12 +1,4 @@
-define([
-
-  'lateralus'
-
-], function (
-
-  Lateralus
-
-) {
+define(['lateralus'], function(Lateralus) {
   'use strict';
 
   var Base = Lateralus.Component.Model;
@@ -18,9 +10,9 @@ define([
      * @param {Object} [attributes]
      * @param {Object} [options]
      */
-    initialize: function () {
+    initialize: function() {
       baseProto.initialize.apply(this, arguments);
-    }
+    },
   });
 
   return ControlPanelComponentModel;
