@@ -99,7 +99,7 @@ const PreviewComponentView = Base.extend({
     const $onionSkinChildren = this.$onionSkin.children();
     const numSegments = $onionSkinChildren.length;
 
-    $onionSkinChildren.each(function(i, el) {
+    $onionSkinChildren.each((i, el) => {
       const millisecond = i / (numSegments - 1) * animationLength;
       rekapiCloneActor.context = el;
       onionSkinRekapi.update(millisecond);

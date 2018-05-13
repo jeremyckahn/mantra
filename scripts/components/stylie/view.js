@@ -30,13 +30,13 @@ const StylieComponentView = Base.extend({
       // This has to be _.deferred so as to overwrite the custom curves set
       // by Stylie's deferredInitialize method
       _.defer(
-        function() {
+        () => {
           customCurves.forEach(
-            function(customCurve) {
+            customCurve => {
               this.stylie.trigger('setCustomCurve', customCurve);
-            }.bind(this)
+            }
           );
-        }.bind(this)
+        }
       );
 
       $body.on('keydown', this.escapeHandler);
@@ -63,20 +63,20 @@ const StylieComponentView = Base.extend({
 
       // Backfill any custom curves from Stylie into Manta
       customCurves.forEach(
-        function(customCurve) {
+        customCurve => {
           this.emit('setCustomCurve', customCurve);
-        }.bind(this)
+        }
       );
 
       this.hidableView.quickHide(
-        function() {
+        () => {
           this.stylie.dispose();
           this.emit('resumeKeybindings');
 
           if (this.wasPlaying) {
             this.emit('requestPlay');
           }
-        }.bind(this)
+        }
       );
     },
   },
@@ -105,14 +105,14 @@ const StylieComponentView = Base.extend({
       startHidden: true,
     });
 
-    this.escapeHandler = function(evt) {
+    this.escapeHandler = evt => {
       if (
         evt.target === document.body &&
         evt.which === 27 // 27 === escape key
       ) {
         this.emit('requestCloseStylie');
       }
-    }.bind(this);
+    };
   },
 });
 

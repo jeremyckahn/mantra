@@ -69,7 +69,7 @@ const RekapiComponent = Base.extend({
 
     if (needToAccountForOffset) {
       // Apply offset
-      ['translateX', 'translateY'].forEach(function(offsetPropertyName) {
+      ['translateX', 'translateY'].forEach(offsetPropertyName => {
         const offsetProperties = keyframePropertyCollection.where({
           name: offsetPropertyName,
         });
@@ -79,9 +79,7 @@ const RekapiComponent = Base.extend({
         }
 
         const firstPropertyModel = _(offsetProperties)
-          .sortBy(function(property) {
-            return property.get('millisecond');
-          })
+          .sortBy(property => property.get('millisecond'))
           .first();
 
         keyframeOffsets[offsetPropertyName] = parseInt(
@@ -89,7 +87,7 @@ const RekapiComponent = Base.extend({
         );
         const offset = keyframeOffsets[offsetPropertyName];
 
-        offsetProperties.forEach(function(property) {
+        offsetProperties.forEach(property => {
           property.attributes.value =
             parseInt(property.attributes.value, 10) - offset + 'px';
         });
@@ -100,7 +98,7 @@ const RekapiComponent = Base.extend({
 
     // Reverse the offsetting logic from above
     if (needToAccountForOffset) {
-      ['translateX', 'translateY'].forEach(function(offsetPropertyName) {
+      ['translateX', 'translateY'].forEach(offsetPropertyName => {
         if (typeof keyframeOffsets[offsetPropertyName] === 'undefined') {
           return;
         }
@@ -110,7 +108,7 @@ const RekapiComponent = Base.extend({
         });
         const offset = keyframeOffsets[offsetPropertyName];
 
-        offsetProperties.forEach(function(property) {
+        offsetProperties.forEach(property => {
           property.attributes.value =
             parseInt(property.attributes.value, 10) + offset + 'px';
         });
@@ -163,11 +161,7 @@ const RekapiComponent = Base.extend({
 
     let activeProperties = [];
     if (activeKeyframeProperties.length) {
-      activeProperties = _.map(activeKeyframeProperties, function(
-        activeKeyframeProperty
-      ) {
-        return activeKeyframeProperty.model.pick('name', 'millisecond');
-      });
+      activeProperties = _.map(activeKeyframeProperties, activeKeyframeProperty => activeKeyframeProperty.model.pick('name', 'millisecond'));
     }
 
     _.extend(timeline, { activeProperties: activeProperties });

@@ -46,9 +46,9 @@ const ContainerComponentView = Base.extend({
       'beginTemporaryTimelineModifications',
       'endTemporaryTimelineModifications',
     ].forEach(
-      function(event) {
+      event => {
         this.amplify(this.timeline, event);
-      }.bind(this)
+      }
     );
 
     [
@@ -57,15 +57,15 @@ const ContainerComponentView = Base.extend({
       'requestDeselectAllKeyframes',
       'requestResizeScrubberGuide',
     ].forEach(
-      function(event) {
+      event => {
         this.timeline.amplify(this.lateralus, event);
-      }.bind(this)
+      }
     );
 
     ['currentActorModel', 'activeKeyframeProperties'].forEach(
-      function(provider) {
+      provider => {
         this.timeline.shareWith(this.lateralus, provider);
-      }.bind(this)
+      }
     );
 
     this.lateralus.rekapi.addActor();
