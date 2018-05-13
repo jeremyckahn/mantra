@@ -10,6 +10,7 @@ const rootDir = modulePath => path.resolve(__dirname, modulePath);
 
 module.exports = {
   entry: './scripts/main.js',
+  mode: 'production',
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'main.js',
@@ -84,17 +85,6 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin([ 'dist' ]),
-    new Webpack.optimize.UglifyJsPlugin({
-      compress: {
-        dead_code: true,
-        unused: true,
-        warnings: false
-      },
-      output: {
-        comments: false
-      },
-      sourceMap: true
-    }),
     new CopyWebpackPlugin([
       { from: 'index.html' },
       { from: 'img', to: 'img' }
