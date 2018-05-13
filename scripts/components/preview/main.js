@@ -7,9 +7,9 @@ const Base = Lateralus.Component;
 
 const PreviewComponent = Base.extend({
   name: 'preview',
-  Model: Model,
-  View: View,
-  template: template,
+  Model,
+  View,
+  template,
 
   lateralusEvents: {
     'rekapi:addActor': function(rekapi, actor) {

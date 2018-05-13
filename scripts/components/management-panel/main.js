@@ -6,8 +6,8 @@ const Base = AEnimaManagementPanel;
 
 const ManagementPanelComponent = Base.extend({
   name: 'management-panel',
-  View: View,
-  template: template,
+  View,
+  template,
 });
 
 export default ManagementPanelComponent;

@@ -25,7 +25,7 @@ const MantraModel = Base.extend({
     },
   },
 
-  initialize: function() {
+  initialize() {
     baseProto.initialize.apply(this, arguments);
 
     this.set({

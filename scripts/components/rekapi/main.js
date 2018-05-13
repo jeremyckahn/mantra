@@ -15,7 +15,7 @@ const RekapiComponent = Base.extend({
       /**
        * @return {Object}
        */
-      timelineExport: function() {
+      timelineExport() {
         return this.applyOrientationToExport(
           baseProto.provide.timelineExport.bind(this)
         );
@@ -25,7 +25,7 @@ const RekapiComponent = Base.extend({
        * @param {Object} cssOpts Gets passed to Rekapi.DOMRenderer#toString.
        * @return {string}
        */
-      cssAnimationString: function(cssOpts) {
+      cssAnimationString(cssOpts) {
         return this.applyOrientationToExport(
           baseProto.provide.cssAnimationString.bind(this, cssOpts)
         );
@@ -35,14 +35,14 @@ const RekapiComponent = Base.extend({
   ),
 
   lateralusEvents: {
-    requestClearTimeline: function() {
+    requestClearTimeline() {
       this.removeAllActors();
     },
 
     /**
      * @param {KeyboardEvent} evt
      */
-    userRequestUndo: function(evt) {
+    userRequestUndo(evt) {
       // Prevent focusing of the previously-modified input element
       evt.preventDefault();
 
@@ -54,7 +54,7 @@ const RekapiComponent = Base.extend({
    * @param {Function} exportProcessor
    * @return {*}
    */
-  applyOrientationToExport: function(exportProcessor) {
+  applyOrientationToExport(exportProcessor) {
     const currentActorModel = this.collectOne('currentActorModel');
 
     if (!currentActorModel) {
@@ -122,7 +122,7 @@ const RekapiComponent = Base.extend({
    * @return {Object}
    * @override
    */
-  toJSON: function() {
+  toJSON() {
     const exportData = this.exportTimeline();
 
     return exportData;
@@ -132,14 +132,14 @@ const RekapiComponent = Base.extend({
    * @param {Object} animationData
    * @override
    */
-  fromJSON: function(animationData) {
+  fromJSON(animationData) {
     this.rekapi.importTimeline(animationData);
   },
 
   /**
    * @override
    */
-  update: function() {
+  update() {
     // If no arguments were provided, this is a re-render and all retained
     // styles should be removed
     if (arguments.length === 0) {
@@ -153,7 +153,7 @@ const RekapiComponent = Base.extend({
   /**
    * @override
    */
-  exportTimeline: function() {
+  exportTimeline() {
     const { rekapi } = this;
     const timeline = rekapi.exportTimeline.apply(rekapi, arguments);
 
@@ -164,7 +164,7 @@ const RekapiComponent = Base.extend({
       activeProperties = _.map(activeKeyframeProperties, activeKeyframeProperty => activeKeyframeProperty.model.pick('name', 'millisecond'));
     }
 
-    _.extend(timeline, { activeProperties: activeProperties });
+    _.extend(timeline, { activeProperties });
 
     return timeline;
   },
@@ -172,7 +172,7 @@ const RekapiComponent = Base.extend({
   /**
    * @override
    */
-  revertToPreviouslyRecordedUndoState: function() {
+  revertToPreviouslyRecordedUndoState() {
     if (!this.undoStateStack.length) {
       return;
     }
@@ -190,7 +190,7 @@ const RekapiComponent = Base.extend({
   /**
    * @override
    */
-  removeCurrentTimeline: function() {
+  removeCurrentTimeline() {
     this.removeAllActors();
   },
 });

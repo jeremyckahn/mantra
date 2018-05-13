@@ -6,10 +6,10 @@ const Base = AEnimaControlPanel.View;
 const baseProto = Base.prototype;
 
 const ControlPanelComponentView = Base.extend({
-  template: template,
+  template,
 
   lateralusEvents: {
-    setupInitialState: function() {
+    setupInitialState() {
       this.tabsComponent.selectTab(this.$infoTab);
     },
   },
@@ -17,7 +17,7 @@ const ControlPanelComponentView = Base.extend({
   /**
    * @param {Object} [options] See http://backbonejs.org/#View-constructor
    */
-  initialize: function() {
+  initialize() {
     baseProto.initialize.apply(this, arguments);
   },
 });

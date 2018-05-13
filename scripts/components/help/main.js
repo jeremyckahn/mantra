@@ -6,8 +6,8 @@ const Base = ModalComponent;
 
 const HelpComponent = Base.extend({
   name: 'help',
-  View: View,
-  template: template,
+  View,
+  template,
 });
 
 export default HelpComponent;

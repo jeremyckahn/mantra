@@ -7,9 +7,9 @@ const Base = Lateralus.Component;
 
 const StylieComponent = Base.extend({
   name: 'stylie',
-  Model: Model,
-  View: View,
-  template: template,
+  Model,
+  View,
+  template,
 });
 
 export default StylieComponent;

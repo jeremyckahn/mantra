@@ -12,21 +12,21 @@ const Base = Lateralus.Component;
 
 const ContainerComponent = Base.extend({
   name: 'container',
-  Model: Model,
-  View: View,
-  template: template,
+  Model,
+  View,
+  template,
 
   lateralusEvents: {
-    pauseKeybindings: function() {
+    pauseKeybindings() {
       this.keybindingsComponent.dispose();
     },
 
-    resumeKeybindings: function() {
+    resumeKeybindings() {
       this.initKeybindings();
     },
   },
 
-  initialize: function() {
+  initialize() {
     this.initKeybindings();
 
     this.addComponent(PreviewComponent, {
@@ -46,7 +46,7 @@ const ContainerComponent = Base.extend({
     });
   },
 
-  initKeybindings: function() {
+  initKeybindings() {
     this.keybindingsComponent = this.addComponent(KeybindingsComponent);
   },
 });

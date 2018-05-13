@@ -7,9 +7,9 @@ const Base = Lateralus.Component;
 
 const InfoPanelComponent = Base.extend({
   name: 'info-panel',
-  Model: Model,
-  View: View,
-  template: template,
+  Model,
+  View,
+  template,
 });
 
 export default InfoPanelComponent;

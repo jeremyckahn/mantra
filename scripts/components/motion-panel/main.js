@@ -9,8 +9,8 @@ const Base = AEnimaMotionPanel;
 const MotionPanelComponent = Base.extend({
   name: 'motion-panel',
   Model: AEnimaMotionPanel.Model,
-  View: View,
-  template: template,
+  View,
+  template,
 });
 
 export default MotionPanelComponent;

@@ -10,10 +10,10 @@ const baseProto = Base.prototype;
 const $body = $(document.body);
 
 const StylieComponentView = Base.extend({
-  template: template,
+  template,
 
   lateralusEvents: {
-    requestOpenStylie: function() {
+    requestOpenStylie() {
       this.wasPlaying = this.collectOne('isPlaying');
       this.emit('requestQuickCloseHelp');
       this.emit('requestPause');
@@ -50,7 +50,7 @@ const StylieComponentView = Base.extend({
       $(document.activeElement).blur();
     },
 
-    requestCloseStylie: function() {
+    requestCloseStylie() {
       $body.off('keydown', this.escapeHandler);
       this.stylie.emit('requestPause');
 
@@ -97,7 +97,7 @@ const StylieComponentView = Base.extend({
   /**
    * @param {Object} [options] See http://backbonejs.org/#View-constructor
    */
-  initialize: function() {
+  initialize() {
     baseProto.initialize.apply(this, arguments);
 
     this.hidableView = this.addSubview(HidableComponent.View, {

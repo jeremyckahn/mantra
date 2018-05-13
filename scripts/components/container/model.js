@@ -9,7 +9,7 @@ const ContainerComponentModel = Base.extend({
    * @param {Object} [attributes]
    * @param {Object} [options]
    */
-  initialize: function() {
+  initialize() {
     baseProto.initialize.apply(this, arguments);
   },
 });

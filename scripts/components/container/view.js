@@ -8,7 +8,7 @@ const Base = Lateralus.Component.View;
 const baseProto = Base.prototype;
 
 const ContainerComponentView = Base.extend({
-  template: template,
+  template,
 
   className: 'aenima',
 
@@ -16,7 +16,7 @@ const ContainerComponentView = Base.extend({
     /**
      * @return {RekapiTimeline}
      */
-    rekapiTimeline: function() {
+    rekapiTimeline() {
       return this.timeline;
     },
   },
@@ -24,12 +24,12 @@ const ContainerComponentView = Base.extend({
   /**
    * @param {Object} [options] See http://backbonejs.org/#View-constructor
    */
-  initialize: function() {
+  initialize() {
     baseProto.initialize.apply(this, arguments);
     this.$el.addClass('loading');
   },
 
-  deferredInitialize: function() {
+  deferredInitialize() {
     this.timeline = this.lateralus.rekapi.createTimeline(this.$timeline[0], {
       supportedProperties: constant.SUPPORTED_PROPERTIES,
       preventValueInputAutoSelect: true,

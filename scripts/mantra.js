@@ -32,7 +32,7 @@ const Mantra = Lateralus.beget(
 const fn = Mantra.prototype;
 
 fn.lateralusEvents = {
-  rekapiTimelineInitialized: function() {
+  rekapiTimelineInitialized() {
     const savedTimelines = this.model.get('savedTimelines');
     const transientTimeline = savedTimelines[constant.TRANSIENT_TIMELINE_NAME];
 
@@ -69,20 +69,20 @@ fn.lateralusEvents = {
   /**
    * @param {string} timelineName
    */
-  userRequestSaveCurrentAnimation: function(timelineName) {
+  userRequestSaveCurrentAnimation(timelineName) {
     this.saveCurrentTimelineAs(timelineName);
   },
 
   /**
    * @param {string} timelineName
    */
-  userRequestLoadAnimation: function(timelineName) {
+  userRequestLoadAnimation(timelineName) {
     const savedTimelines = this.model.get('savedTimelines');
     const timelineData = savedTimelines[timelineName];
     this.loadTimeline(timelineData);
   },
 
-  resetTimeline: function() {
+  resetTimeline() {
     this.model.set({
       isLoadingTimeline: true,
       doPreventUndoRecording: true,
@@ -99,23 +99,23 @@ fn.lateralusEvents = {
     });
   },
 
-  setupInitialState: function() {
+  setupInitialState() {
     this.setupInitialState();
   },
 
-  keyframePropertyDragStart: function() {
+  keyframePropertyDragStart() {
     this.emit('requestRecordUndoState');
   },
 
-  beforeUserUpdatesKeyframeMillisecondInput: function() {
+  beforeUserUpdatesKeyframeMillisecondInput() {
     this.emit('requestRecordUndoState');
   },
 
-  beforeUserUpdatesKeyframeCurveSelector: function() {
+  beforeUserUpdatesKeyframeCurveSelector() {
     this.emit('requestRecordUndoState');
   },
 
-  beforeUserUpdatesKeyframeValueInput: function() {
+  beforeUserUpdatesKeyframeValueInput() {
     this.emit('requestRecordUndoState');
   },
 
@@ -127,11 +127,11 @@ fn.lateralusEvents = {
     this.emit('requestRecordUndoState');
   },
 
-  beginTemporaryTimelineModifications: function() {
+  beginTemporaryTimelineModifications() {
     this.model.set('doPreventUndoRecording', true);
   },
 
-  endTemporaryTimelineModifications: function() {
+  endTemporaryTimelineModifications() {
     this.model.set('doPreventUndoRecording', false);
   },
 };

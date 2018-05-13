@@ -13,9 +13,9 @@ const Base = AEnimaControlPanelComponent;
 
 const ControlPanelComponent = Base.extend({
   name: 'control-panel',
-  Model: Model,
-  View: View,
-  template: template,
+  Model,
+  View,
+  template,
 
   provide: {
     /**
@@ -27,7 +27,7 @@ const ControlPanelComponent = Base.extend({
      *   iterations: boolean|undefined
      * }}
      */
-    cssConfigObject: function() {
+    cssConfigObject() {
       const motionPanelJson = this.motionPanelComponent.toJSON();
       const exportPanelJson = this.exportPanelComponent.toJSON();
 
@@ -35,7 +35,7 @@ const ControlPanelComponent = Base.extend({
     },
   },
 
-  initialize: function() {
+  initialize() {
     this.exportPanelComponent = this.addComponent(
       ExportPanelComponent,
       {

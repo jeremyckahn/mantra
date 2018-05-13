@@ -8,7 +8,7 @@ const baseProto = Base.prototype;
 const onionSkinRekapi = new Rekapi(document.createElement('div'));
 
 const PreviewComponentView = Base.extend({
-  template: template,
+  template,
 
   lateralusEvents: {
     /**
@@ -28,13 +28,13 @@ const PreviewComponentView = Base.extend({
       }
     },
 
-    rekapiTimelineInitialized: function() {
+    rekapiTimelineInitialized() {
       if (this.lateralus.model.getUi('showOnionSkin')) {
         this.updateOnionSkinSegmentPositions();
       }
     },
 
-    userRequestUpdateOnionSkinSetting: function() {
+    userRequestUpdateOnionSkinSetting() {
       const showOnionSkin = this.lateralus.model.getUi('showOnionSkin');
       if (showOnionSkin) {
         this.updateOnionSkinResolutionForTimelineDuration(
@@ -48,7 +48,7 @@ const PreviewComponentView = Base.extend({
       );
     },
 
-    requestResetRenderedActorState: function() {
+    requestResetRenderedActorState() {
       this.$actor.removeAttr('style');
     },
   },
@@ -56,7 +56,7 @@ const PreviewComponentView = Base.extend({
   /**
    * @param {Object} [options] See http://backbonejs.org/#View-constructor
    */
-  initialize: function() {
+  initialize() {
     baseProto.initialize.apply(this, arguments);
     this.$actorBaseClone = this.$actor.clone();
     this.$actorBaseClone.removeClass('$actor');
@@ -69,7 +69,7 @@ const PreviewComponentView = Base.extend({
   /**
    * @param {number} duration
    */
-  updateOnionSkinResolutionForTimelineDuration: function(duration) {
+  updateOnionSkinResolutionForTimelineDuration(duration) {
     if (duration > constant.ONION_SKIN_DURATION_LIMIT) {
       return;
     }
@@ -88,7 +88,7 @@ const PreviewComponentView = Base.extend({
     this.$onionSkin.append(actorClones);
   },
 
-  updateOnionSkinSegmentPositions: function() {
+  updateOnionSkinSegmentPositions() {
     const rekapi = this.lateralus.rekapi;
     onionSkinRekapi.removeAllActors();
     onionSkinRekapi.importTimeline(rekapi.exportTimeline());
