@@ -3,10 +3,10 @@ import _ from 'underscore';
 import Mustache from 'mustache';
 import template from 'text!./template.mustache';
 
-var Base = AEnimaManagementPanel.View;
-var baseProto = Base.prototype;
+const Base = AEnimaManagementPanel.View;
+const baseProto = Base.prototype;
 
-var ManagementPanelComponentView = Base.extend({
+const ManagementPanelComponentView = Base.extend({
   template: Mustache.render(
     template,
     {},

@@ -4,10 +4,10 @@ import template from 'text!./template.mustache';
 import constant from '../../constant';
 import 'rekapi-timeline';
 
-var Base = Lateralus.Component.View;
-var baseProto = Base.prototype;
+const Base = Lateralus.Component.View;
+const baseProto = Base.prototype;
 
-var ContainerComponentView = Base.extend({
+const ContainerComponentView = Base.extend({
   template: template,
 
   className: 'aenima',

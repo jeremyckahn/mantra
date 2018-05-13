@@ -3,11 +3,11 @@ import { Rekapi } from 'rekapi';
 import template from 'text!./template.mustache';
 import constant from '../../constant';
 
-var Base = Lateralus.Component.View;
-var baseProto = Base.prototype;
-var onionSkinRekapi = new Rekapi(document.createElement('div'));
+const Base = Lateralus.Component.View;
+const baseProto = Base.prototype;
+const onionSkinRekapi = new Rekapi(document.createElement('div'));
 
-var PreviewComponentView = Base.extend({
+const PreviewComponentView = Base.extend({
   template: template,
 
   lateralusEvents: {
@@ -21,7 +21,7 @@ var PreviewComponentView = Base.extend({
     },
 
     'rekapi:timelineModified': function() {
-      var lateralus = this.lateralus;
+      const lateralus = this.lateralus;
 
       if (lateralus.hasInitialized && lateralus.model.getUi('showOnionSkin')) {
         this.updateOnionSkinSegmentPositions();
@@ -35,7 +35,7 @@ var PreviewComponentView = Base.extend({
     },
 
     userRequestUpdateOnionSkinSetting: function() {
-      var showOnionSkin = this.lateralus.model.getUi('showOnionSkin');
+      const showOnionSkin = this.lateralus.model.getUi('showOnionSkin');
       if (showOnionSkin) {
         this.updateOnionSkinResolutionForTimelineDuration(
           this.lateralus.rekapi.getAnimationLength()
@@ -75,12 +75,12 @@ var PreviewComponentView = Base.extend({
     }
 
     this.$onionSkin.empty();
-    var numSegments = Math.ceil(
+    const numSegments = Math.ceil(
       duration / 1000 * constant.ONION_SKIN_SEGMENTS_PER_SECOND
     );
 
-    var i = 0;
-    var actorClones = [];
+    let i = 0;
+    const actorClones = [];
     for (i; i < numSegments; i++) {
       actorClones.push(this.$actorBaseClone.clone());
     }
@@ -89,18 +89,18 @@ var PreviewComponentView = Base.extend({
   },
 
   updateOnionSkinSegmentPositions: function() {
-    var rekapi = this.lateralus.rekapi;
+    const rekapi = this.lateralus.rekapi;
     onionSkinRekapi.removeAllActors();
     onionSkinRekapi.importTimeline(rekapi.exportTimeline());
-    var rekapiCloneActor = onionSkinRekapi.getActor(
+    const rekapiCloneActor = onionSkinRekapi.getActor(
       onionSkinRekapi.getActorIds()[0]
     );
-    var animationLength = rekapi.getAnimationLength();
-    var $onionSkinChildren = this.$onionSkin.children();
-    var numSegments = $onionSkinChildren.length;
+    const animationLength = rekapi.getAnimationLength();
+    const $onionSkinChildren = this.$onionSkin.children();
+    const numSegments = $onionSkinChildren.length;
 
     $onionSkinChildren.each(function(i, el) {
-      var millisecond = i / (numSegments - 1) * animationLength;
+      const millisecond = i / (numSegments - 1) * animationLength;
       rekapiCloneActor.context = el;
       onionSkinRekapi.update(millisecond);
     });

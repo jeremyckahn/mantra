@@ -4,10 +4,10 @@ import Lateralus from 'lateralus';
 import AEnimaMotionPanel from 'aenima/components/motion-panel/main';
 import template from 'text!./template.mustache';
 
-var Base = AEnimaMotionPanel.View;
-var baseProto = Base.prototype;
+const Base = AEnimaMotionPanel.View;
+const baseProto = Base.prototype;
 
-var MotionPanelComponentView = Base.extend({
+const MotionPanelComponentView = Base.extend({
   template: Mustache.render(template, {
     base: AEnimaMotionPanel.template,
   }),

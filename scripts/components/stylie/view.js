@@ -5,11 +5,11 @@ import template from 'text!./template.mustache';
 import Stylie from '@jeremyckahn/stylie';
 import HidableComponent from 'aenima/components/hidable/main';
 
-var Base = Lateralus.Component.View;
-var baseProto = Base.prototype;
-var $body = $(document.body);
+const Base = Lateralus.Component.View;
+const baseProto = Base.prototype;
+const $body = $(document.body);
 
-var StylieComponentView = Base.extend({
+const StylieComponentView = Base.extend({
   template: template,
 
   lateralusEvents: {
@@ -19,7 +19,7 @@ var StylieComponentView = Base.extend({
       this.emit('requestPause');
       this.emit('pauseKeybindings');
 
-      var customCurves = this.collectOne('customCurves');
+      const customCurves = this.collectOne('customCurves');
       this.emit('quarantineCustomCurves');
 
       this.stylie = new Stylie(this.$stylieRoot[0], {
@@ -54,7 +54,7 @@ var StylieComponentView = Base.extend({
       $body.off('keydown', this.escapeHandler);
       this.stylie.emit('requestPause');
 
-      var customCurves = this.collectOne('customCurves');
+      const customCurves = this.collectOne('customCurves');
 
       // Ensure that that there are no null reference errors to custom curves
       // due the a mismatch in the number of custom curves set by Stylie

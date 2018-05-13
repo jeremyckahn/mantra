@@ -3,9 +3,9 @@ import Model from './model';
 import View from './view';
 import template from 'text!./template.mustache';
 
-var Base = Lateralus.Component;
+const Base = Lateralus.Component;
 
-var PreviewComponent = Base.extend({
+const PreviewComponent = Base.extend({
   name: 'preview',
   Model: Model,
   View: View,

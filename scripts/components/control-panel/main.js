@@ -9,9 +9,9 @@ import MotionPanelComponent from '../motion-panel/main';
 import ManagementPanelComponent from '../management-panel/main';
 import InfoPanelComponent from '../info-panel/main';
 
-var Base = AEnimaControlPanelComponent;
+const Base = AEnimaControlPanelComponent;
 
-var ControlPanelComponent = Base.extend({
+const ControlPanelComponent = Base.extend({
   name: 'control-panel',
   Model: Model,
   View: View,
@@ -28,8 +28,8 @@ var ControlPanelComponent = Base.extend({
      * }}
      */
     cssConfigObject: function() {
-      var motionPanelJson = this.motionPanelComponent.toJSON();
-      var exportPanelJson = this.exportPanelComponent.toJSON();
+      const motionPanelJson = this.motionPanelComponent.toJSON();
+      const exportPanelJson = this.exportPanelComponent.toJSON();
 
       return _.extend(motionPanelJson, exportPanelJson);
     },

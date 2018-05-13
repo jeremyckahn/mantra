@@ -4,10 +4,10 @@ import Lateralus from 'lateralus';
 import Rekapi from 'rekapi';
 import AEnimaRekapiComponent from 'aenima/components/rekapi/main';
 
-var Base = AEnimaRekapiComponent;
-var baseProto = Base.prototype;
+const Base = AEnimaRekapiComponent;
+const baseProto = Base.prototype;
 
-var RekapiComponent = Base.extend({
+const RekapiComponent = Base.extend({
   name: 'rekapi',
 
   provide: _.defaults(
@@ -55,22 +55,22 @@ var RekapiComponent = Base.extend({
    * @return {*}
    */
   applyOrientationToExport: function(exportProcessor) {
-    var currentActorModel = this.collectOne('currentActorModel');
+    const currentActorModel = this.collectOne('currentActorModel');
 
     if (!currentActorModel) {
       return exportProcessor.call(this);
     }
 
-    var keyframePropertyCollection =
+    const keyframePropertyCollection =
       currentActorModel.keyframePropertyCollection;
-    var needToAccountForOffset =
+    const needToAccountForOffset =
       this.lateralus.model.getUi('exportOrientation') === 'first-keyframe';
-    var keyframeOffsets = {};
+    const keyframeOffsets = {};
 
     if (needToAccountForOffset) {
       // Apply offset
       ['translateX', 'translateY'].forEach(function(offsetPropertyName) {
-        var offsetProperties = keyframePropertyCollection.where({
+        const offsetProperties = keyframePropertyCollection.where({
           name: offsetPropertyName,
         });
 
@@ -78,7 +78,7 @@ var RekapiComponent = Base.extend({
           return;
         }
 
-        var firstPropertyModel = _(offsetProperties)
+        const firstPropertyModel = _(offsetProperties)
           .sortBy(function(property) {
             return property.get('millisecond');
           })
@@ -87,7 +87,7 @@ var RekapiComponent = Base.extend({
         keyframeOffsets[offsetPropertyName] = parseInt(
           firstPropertyModel.get('value')
         );
-        var offset = keyframeOffsets[offsetPropertyName];
+        const offset = keyframeOffsets[offsetPropertyName];
 
         offsetProperties.forEach(function(property) {
           property.attributes.value =
@@ -96,7 +96,7 @@ var RekapiComponent = Base.extend({
       });
     }
 
-    var exportedAnimation = exportProcessor.call(this);
+    const exportedAnimation = exportProcessor.call(this);
 
     // Reverse the offsetting logic from above
     if (needToAccountForOffset) {
@@ -105,10 +105,10 @@ var RekapiComponent = Base.extend({
           return;
         }
 
-        var offsetProperties = keyframePropertyCollection.where({
+        const offsetProperties = keyframePropertyCollection.where({
           name: offsetPropertyName,
         });
-        var offset = keyframeOffsets[offsetPropertyName];
+        const offset = keyframeOffsets[offsetPropertyName];
 
         offsetProperties.forEach(function(property) {
           property.attributes.value =
@@ -125,7 +125,7 @@ var RekapiComponent = Base.extend({
    * @override
    */
   toJSON: function() {
-    var exportData = this.exportTimeline();
+    const exportData = this.exportTimeline();
 
     return exportData;
   },
@@ -157,11 +157,11 @@ var RekapiComponent = Base.extend({
    */
   exportTimeline: function() {
     const { rekapi } = this;
-    var timeline = rekapi.exportTimeline.apply(rekapi, arguments);
+    const timeline = rekapi.exportTimeline.apply(rekapi, arguments);
 
-    var activeKeyframeProperties = this.collect('activeKeyframeProperties');
+    const activeKeyframeProperties = this.collect('activeKeyframeProperties');
 
-    var activeProperties = [];
+    let activeProperties = [];
     if (activeKeyframeProperties.length) {
       activeProperties = _.map(activeKeyframeProperties, function(
         activeKeyframeProperty
@@ -183,7 +183,7 @@ var RekapiComponent = Base.extend({
       return;
     }
 
-    var lastUndoState = JSON.parse(_.last(this.undoStateStack));
+    const lastUndoState = JSON.parse(_.last(this.undoStateStack));
     baseProto.revertToPreviouslyRecordedUndoState.apply(this, arguments);
 
     lastUndoState.activeProperties.forEach(function(activeProperty) {

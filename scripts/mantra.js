@@ -14,7 +14,7 @@ import '../styles/main.sass';
  * @extends {Lateralus}
  * @constructor
  */
-var Mantra = Lateralus.beget(
+const Mantra = Lateralus.beget(
   function() {
     Lateralus.apply(this, arguments);
     this.initHacks();
@@ -29,12 +29,12 @@ var Mantra = Lateralus.beget(
   }
 );
 
-var fn = Mantra.prototype;
+const fn = Mantra.prototype;
 
 fn.lateralusEvents = {
   rekapiTimelineInitialized: function() {
-    var savedTimelines = this.model.get('savedTimelines');
-    var transientTimeline = savedTimelines[constant.TRANSIENT_TIMELINE_NAME];
+    const savedTimelines = this.model.get('savedTimelines');
+    const transientTimeline = savedTimelines[constant.TRANSIENT_TIMELINE_NAME];
 
     if (window.localStorage._export) {
       var _export = window.localStorage._export;
@@ -77,8 +77,8 @@ fn.lateralusEvents = {
    * @param {string} timelineName
    */
   userRequestLoadAnimation: function(timelineName) {
-    var savedTimelines = this.model.get('savedTimelines');
-    var timelineData = savedTimelines[timelineName];
+    const savedTimelines = this.model.get('savedTimelines');
+    const timelineData = savedTimelines[timelineName];
     this.loadTimeline(timelineData);
   },
 
@@ -172,7 +172,7 @@ fn.loadTimeline = function(timelineData, preventStackClear) {
  * @param {string} timelineName
  */
 fn.saveCurrentTimelineAs = function(timelineName) {
-  var savedTimelines = this.model.get('savedTimelines');
+  const savedTimelines = this.model.get('savedTimelines');
   savedTimelines[timelineName] = this.rekapiComponent.toJSON();
   this.model.set('savedTimelines', savedTimelines);
 
@@ -192,7 +192,7 @@ fn.saveCurrentTimelineAs = function(timelineName) {
  * @return {Array.<string>}
  */
 fn.getSavedTimelineDisplayList = function() {
-  var rawList = this.model.get('savedTimelines');
+  const rawList = this.model.get('savedTimelines');
   return Object.keys(_.omit(rawList, constant.TRANSIENT_TIMELINE_NAME));
 };
 
@@ -218,9 +218,9 @@ fn.setupInitialState = function() {
 };
 
 fn.initHacks = function() {
-  var hasSafari = navigator.userAgent.match(/safari/i);
-  var hasChrome = navigator.userAgent.match(/chrome/i);
-  var isFirefox = navigator.userAgent.match(/firefox/i);
+  const hasSafari = navigator.userAgent.match(/safari/i);
+  const hasChrome = navigator.userAgent.match(/chrome/i);
+  const isFirefox = navigator.userAgent.match(/firefox/i);
 
   if (hasSafari && !hasChrome) {
     this.$el.addClass('safari');

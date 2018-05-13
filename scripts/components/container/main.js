@@ -8,9 +8,9 @@ import ControlPanel from '../control-panel/main';
 import StylieComponent from '../stylie/main';
 import HelpComponent from '../help/main';
 
-var Base = Lateralus.Component;
+const Base = Lateralus.Component;
 
-var ContainerComponent = Base.extend({
+const ContainerComponent = Base.extend({
   name: 'container',
   Model: Model,
   View: View,

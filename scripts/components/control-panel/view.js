@@ -2,10 +2,10 @@ import Lateralus from 'lateralus';
 import template from 'text!./template.mustache';
 import AEnimaControlPanel from 'aenima/components/control-panel/main';
 
-var Base = AEnimaControlPanel.View;
-var baseProto = Base.prototype;
+const Base = AEnimaControlPanel.View;
+const baseProto = Base.prototype;
 
-var ControlPanelComponentView = Base.extend({
+const ControlPanelComponentView = Base.extend({
   template: template,
 
   lateralusEvents: {

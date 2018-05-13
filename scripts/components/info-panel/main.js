@@ -3,9 +3,9 @@ import Model from './model';
 import View from './view';
 import template from 'text!./template.mustache';
 
-var Base = Lateralus.Component;
+const Base = Lateralus.Component;
 
-var InfoPanelComponent = Base.extend({
+const InfoPanelComponent = Base.extend({
   name: 'info-panel',
   Model: Model,
   View: View,

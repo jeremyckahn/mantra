@@ -2,10 +2,10 @@ import _ from 'underscore';
 import Lateralus from 'lateralus';
 import PersistedModel from 'aenima/models/persisted-model';
 
-var Base = PersistedModel;
-var baseProto = Base.prototype;
+const Base = PersistedModel;
+const baseProto = Base.prototype;
 
-var MantraModel = Base.extend({
+const MantraModel = Base.extend({
   localStorageId: 'mantraData',
 
   defaults: {

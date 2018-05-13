@@ -4,9 +4,9 @@ import Model from './model';
 import View from './view';
 import template from 'text!./template.mustache';
 
-var Base = AEnimaMotionPanel;
+const Base = AEnimaMotionPanel;
 
-var MotionPanelComponent = Base.extend({
+const MotionPanelComponent = Base.extend({
   name: 'motion-panel',
   Model: AEnimaMotionPanel.Model,
   View: View,

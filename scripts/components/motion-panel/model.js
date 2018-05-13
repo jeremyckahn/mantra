@@ -1,9 +1,9 @@
 import Lateralus from 'lateralus';
 
-var Base = Lateralus.Component.Model;
-var baseProto = Base.prototype;
+const Base = Lateralus.Component.Model;
+const baseProto = Base.prototype;
 
-var MotionPanelComponentModel = Base.extend({
+const MotionPanelComponentModel = Base.extend({
   /**
    * Parameters are the same as http://backbonejs.org/#Model-constructor
    * @param {Object} [attributes]
