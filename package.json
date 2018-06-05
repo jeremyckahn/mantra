@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "license": "CC BY-NC-SA",
   "dependencies": {
-    "@jeremyckahn/stylie": "^2.10.0",
+    "@jeremyckahn/stylie": "^2.10.1",
     "aenima": "^0.8.0",
     "backbone": "1.2.1",
     "bezierizer": "0.1.0",
