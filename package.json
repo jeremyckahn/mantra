@@ -1,6 +1,6 @@
 {
   "name": "@jeremyckahn/mantra",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": "CC BY-NC-SA",
   "dependencies": {
     "@jeremyckahn/stylie": "^2.10.1",
