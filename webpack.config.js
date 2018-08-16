@@ -42,7 +42,7 @@ module.exports = {
       lodash: rootDir('node_modules/lodash/index.js'),
       mustache: rootDir('node_modules/mustache/mustache'),
       rekapi: rootDir('node_modules/rekapi/src/main'),
-      shifty: rootDir('node_modules/shifty/src/main'),
+      shifty: rootDir('node_modules/shifty/src/index'),
       underscore: 'lodash'
     }
   },

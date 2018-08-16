@@ -20,13 +20,14 @@
     "rekapi": "~2.0.6",
     "rekapi-timeline": "~0.6.1",
     "requirejs": "~2.1.20",
-    "shifty": "^2.3.0"
+    "shifty": "^2.6.0"
   },
   "devDependencies": {
     "appcache-webpack-plugin": "^1.3.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
     "clean-webpack-plugin": "^0.1.17",
     "compass-mixins": "^0.12.10",
     "copy-webpack-plugin": "^4.5.1",
