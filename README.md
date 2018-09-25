@@ -28,7 +28,7 @@ To run the app:
 npm start
 ````
 
-You can now access Mantra from http://localhost:9009.
+You can now access Mantra from http://0.0.0.0:9009.
 
 ## Developing Mantra
 
