@@ -8,7 +8,7 @@ Mantra is a timeline editing tool for web animations.  It is inspired by tools s
 
 ![Mantra screenshot](img/screenshot.png)
 
-Mantra can either be used at http://jeremyckahn.github.io/mantra/ or installed and run locally.
+Mantra can either be used at https://jeremyckahn.github.io/mantra/ or installed and run locally.
 
 ## Installation
 
@@ -40,4 +40,4 @@ npm run build
 
 ## License
 
-Mantra is distributed under a [CC BY-NC-SA license](http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).  Don't worry, this license does not extend to the animations you create with Mantra, just the application itself.  You are free to use the animations created by Mantra however you please.  You are encouraged to use and modify the code to suit your needs, as well as redistribute it non-commercially.
+Mantra is distributed under a [CC BY-NC-SA license](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).  Don't worry, this license does not extend to the animations you create with Mantra, just the application itself.  You are free to use the animations created by Mantra however you please.  You are encouraged to use and modify the code to suit your needs, as well as redistribute it non-commercially.
