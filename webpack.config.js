@@ -91,7 +91,9 @@ module.exports = {
       { from: 'img', to: 'img' }
     ]),
     new Webpack.BannerPlugin(version),
-    new WorkboxPlugin.GenerateSW()
+    new WorkboxPlugin.GenerateSW({
+      exclude: [/\.(?:DS_Store|xcf)$/],
+    })
   ],
   devServer: {
     host: '0.0.0.0',
