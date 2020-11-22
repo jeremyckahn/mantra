@@ -2,7 +2,7 @@ const path = require('path');
 const Webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const AppCachePlugin = require('appcache-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const { version } = require('./package.json');
 
@@ -87,13 +87,11 @@ module.exports = {
     new CleanWebpackPlugin([ 'dist' ]),
     new CopyWebpackPlugin([
       { from: 'index.html' },
+      { from: 'manifest.json' },
       { from: 'img', to: 'img' }
     ]),
     new Webpack.BannerPlugin(version),
-    new AppCachePlugin({
-      exclude: [/DS_Store/],
-      output: 'manifest.appcache'
-    })
+    new WorkboxPlugin.GenerateSW()
   ],
   devServer: {
     host: '0.0.0.0',

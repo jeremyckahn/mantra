@@ -1,0 +1,20 @@
+{
+  "short_name": "Mantra",
+  "name": "Mantra",
+  "icons": [
+    {
+      "src": "img/mantra-logo-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "img/mantra-logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#000000"
+}
