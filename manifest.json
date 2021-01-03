@@ -3,6 +3,11 @@
   "name": "Mantra",
   "icons": [
     {
+      "src": "img/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
       "src": "img/mantra-logo-192.png",
       "type": "image/png",
       "sizes": "192x192"
@@ -11,9 +16,16 @@
       "src": "img/mantra-logo-512.png",
       "type": "image/png",
       "sizes": "512x512"
+    },
+    {
+      "src": "img/mantra-icon.png",
+      "type": "image/png",
+      "purpose": "maskable",
+      "sizes": "512x512"
     }
   ],
-  "start_url": "./index.html",
+  "scope": "/mantra/",
+  "start_url": "/mantra/index.html",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#000000"
