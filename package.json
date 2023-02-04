@@ -29,7 +29,7 @@
     "clean-webpack-plugin": "^0.1.17",
     "compass-mixins": "^0.12.10",
     "copy-webpack-plugin": "^4.5.1",
-    "css-loader": "^0.28.7",
+    "css-loader": "^6.7.3",
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^2.9.0",
     "file-loader": "^1.1.11",
