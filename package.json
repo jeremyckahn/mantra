@@ -35,7 +35,7 @@
     "file-loader": "^1.1.11",
     "gh-pages": "^1.0.0",
     "node-sass": "^8.0.0",
-    "nodemon": "^1.9.2",
+    "nodemon": "^2.0.20",
     "prettier": "^1.12.1",
     "raw-loader": "^0.5.1",
     "sass-loader": "^6.0.6",
